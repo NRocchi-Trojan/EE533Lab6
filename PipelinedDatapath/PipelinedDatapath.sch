@@ -19,7 +19,6 @@ BEGIN SCHEMATIC
         SIGNAL XLXN_50(63:0)
         SIGNAL InstIF(31:0)
         SIGNAL wea
-        SIGNAL InstAddr(7:0)
         SIGNAL RegData1(7:0)
         SIGNAL XLXN_65
         SIGNAL InstData(31:0)
@@ -55,6 +54,14 @@ BEGIN SCHEMATIC
         SIGNAL XLXN_184
         SIGNAL XLXN_185
         SIGNAL XLXN_186
+        SIGNAL InstID(29)
+        SIGNAL InstID(28)
+        SIGNAL InstADDR(63:0)
+        SIGNAL InstADDR(7:0)
+        SIGNAL XLXN_190(63:0)
+        SIGNAL XLXN_191
+        SIGNAL XLXN_192(63:0)
+        SIGNAL XLXN_193(63:0)
         PORT Input clk
         PORT Input wea
         PORT Input InstData(31:0)
@@ -103,11 +110,15 @@ BEGIN SCHEMATIC
             END LINE
         END BLOCKDEF
         BEGIN BLOCKDEF ProgCount
-            TIMESTAMP 2026 2 22 8 14 48
+            TIMESTAMP 2026 2 24 5 41 1
+            RECTANGLE N 320 212 384 236 
+            LINE N 320 224 384 224 
+            RECTANGLE N 0 84 64 108 
+            LINE N 64 96 0 96 
             RECTANGLE N 320 20 384 44 
             LINE N 320 32 384 32 
             LINE N 64 -32 0 -32 
-            RECTANGLE N 64 -128 320 64 
+            RECTANGLE N 64 -128 320 256 
         END BLOCKDEF
         BEGIN BLOCKDEF IFIDReg
             TIMESTAMP 2026 2 22 10 31 47
@@ -164,7 +175,7 @@ BEGIN SCHEMATIC
             LINE N 136 1040 144 1040 
         END BLOCKDEF
         BEGIN BLOCKDEF ZeroDetect64
-            TIMESTAMP 2026 2 22 10 50 33
+            TIMESTAMP 2026 2 24 5 53 11
             RECTANGLE N 64 -64 320 0 
             RECTANGLE N 0 -44 64 -20 
             LINE N 64 -32 0 -32 
@@ -208,20 +219,6 @@ BEGIN SCHEMATIC
             LINE N 288 1344 352 1344 
             LINE N 96 1344 160 1344 
         END BLOCKDEF
-        BEGIN BLOCKDEF m2_1_64bit
-            TIMESTAMP 2026 2 23 20 13 9
-            RECTANGLE N 48 -60 112 -36 
-            LINE N 112 -48 48 -48 
-            RECTANGLE N 48 -156 112 -132 
-            LINE N 112 -144 48 -144 
-            LINE N 112 -184 112 -4 
-            LINE N 112 -4 272 -28 
-            LINE N 112 -184 272 -164 
-            RECTANGLE N 272 -108 336 -84 
-            LINE N 272 -96 336 -96 
-            LINE N 272 -28 272 -164 
-            LINE N 192 -16 192 32 
-        END BLOCKDEF
         BEGIN BLOCKDEF signExt
             TIMESTAMP 2026 2 23 20 54 29
             RECTANGLE N 64 -64 320 0 
@@ -252,8 +249,23 @@ BEGIN SCHEMATIC
             LINE N 96 192 160 192 
             LINE N 352 192 288 192 
         END BLOCKDEF
+        BEGIN BLOCKDEF Mux64bit_wide
+            TIMESTAMP 2026 2 24 6 27 38
+            LINE N 96 -36 96 -204 
+            LINE N 256 -176 256 -52 
+            RECTANGLE N 32 -188 96 -164 
+            LINE N 96 -176 32 -176 
+            RECTANGLE N 32 -76 96 -52 
+            LINE N 96 -64 32 -64 
+            RECTANGLE N 256 -140 320 -116 
+            LINE N 256 -128 320 -128 
+            LINE N 256 -176 256 -180 
+            LINE N 96 -204 256 -180 
+            LINE N 256 -52 96 -36 
+            LINE N 176 0 176 -44 
+        END BLOCKDEF
         BEGIN BLOCK XLXI_32 InstructionMem
-            PIN addr(7:0) InstAddr(7:0)
+            PIN addr(7:0) InstADDR(7:0)
             PIN din(31:0) InstData(31:0)
             PIN we wea
             PIN clk clk
@@ -270,7 +282,9 @@ BEGIN SCHEMATIC
         END BLOCK
         BEGIN BLOCK XLXI_39 ProgCount
             PIN clk clk
+            PIN PCIn(63:0) XLXN_114(63:0)
             PIN ProgCounter(63:0) PCMux0(63:0)
+            PIN ToInst(63:0) InstADDR(63:0)
         END BLOCK
         BEGIN BLOCK XLXI_40 IFIDReg
             PIN clk clk
@@ -303,18 +317,6 @@ BEGIN SCHEMATIC
             PIN RTypeEX XLXN_183
             PIN RTypeMEM XLXN_185
         END BLOCK
-        BEGIN BLOCK XLXI_54 m2_1_64bit
-            PIN D1(63:0) PCMux0(63:0)
-            PIN D0(63:0) PCMux1(63:0)
-            PIN O(63:0) XLXN_114(63:0)
-            PIN S0 XLXN_89
-        END BLOCK
-        BEGIN BLOCK XLXI_55 m2_1_64bit
-            PIN D1(63:0) XLXN_115(63:0)
-            PIN D0(63:0) XLXN_111(63:0)
-            PIN O(63:0) XLXN_140(63:0)
-            PIN S0 XLXN_186
-        END BLOCK
         BEGIN BLOCK XLXI_56 signExt
             PIN short(15:0) InstID(15:0)
             PIN long(31:0) XLXN_127(31:0)
@@ -339,16 +341,10 @@ BEGIN SCHEMATIC
             PIN WREI InstID(30)
             PIN PCI(63:0) XLXN_82(63:0)
             PIN ZeroID XLXN_83
-            PIN ALUOpID
+            PIN ALUOpID InstID(29)
             PIN ALUOpEX XLXN_182
-            PIN RTypeID
+            PIN RTypeID InstID(28)
             PIN RTypeEX XLXN_183
-        END BLOCK
-        BEGIN BLOCK XLXI_59 m2_1_64bit
-            PIN D1(63:0) ALUnoop(63:0)
-            PIN D0(63:0) XLXN_180(63:0)
-            PIN O(63:0) XLXN_171(63:0)
-            PIN S0 XLXN_182
         END BLOCK
         BEGIN BLOCK XLXI_13 reg_file
             PIN wena XLXN_44
@@ -361,8 +357,8 @@ BEGIN SCHEMATIC
             PIN r1data(63:0) XLXN_15(63:0)
         END BLOCK
         BEGIN BLOCK XLXI_42 ZeroDetect64
-            PIN in(63:0) XLXN_16(63:0)
-            PIN out XLXN_83
+            PIN din(63:0) XLXN_16(63:0)
+            PIN dout XLXN_83
         END BLOCK
         BEGIN BLOCK XLXI_60 MEMWBStageReg
             PIN clk clk
@@ -376,6 +372,24 @@ BEGIN SCHEMATIC
             PIN WBAltOut(63:0) XLXN_115(63:0)
             PIN RTypeMEM XLXN_185
             PIN RTypeWB XLXN_186
+        END BLOCK
+        BEGIN BLOCK XLXI_61 Mux64bit_wide
+            PIN D0(63:0) PCMux1(63:0)
+            PIN D1(63:0) PCMux0(63:0)
+            PIN O(63:0) XLXN_114(63:0)
+            PIN Sel XLXN_89
+        END BLOCK
+        BEGIN BLOCK XLXI_62 Mux64bit_wide
+            PIN D0(63:0) XLXN_180(63:0)
+            PIN D1(63:0) ALUnoop(63:0)
+            PIN O(63:0) XLXN_171(63:0)
+            PIN Sel XLXN_182
+        END BLOCK
+        BEGIN BLOCK XLXI_63 Mux64bit_wide
+            PIN D0(63:0) XLXN_111(63:0)
+            PIN D1(63:0) XLXN_115(63:0)
+            PIN O(63:0) XLXN_140(63:0)
+            PIN Sel XLXN_186
         END BLOCK
     END NETLIST
     BEGIN SHEET 1 5440 3520
@@ -411,12 +425,6 @@ BEGIN SCHEMATIC
         END BRANCH
         BEGIN BRANCH wea
             WIRE 144 2368 304 2368
-        END BRANCH
-        BEGIN BRANCH InstAddr(7:0)
-            WIRE 160 2304 304 2304
-            BEGIN DISPLAY 160 2304 ATTR Name
-                ALIGNMENT SOFT-RIGHT
-            END DISPLAY
         END BRANCH
         BEGIN INSTANCE XLXI_32 304 2256 R0
         END INSTANCE
@@ -488,12 +496,12 @@ BEGIN SCHEMATIC
         BEGIN INSTANCE XLXI_39 96 704 R0
         END INSTANCE
         BEGIN BRANCH XLXN_89
-            WIRE 64 224 3024 224
-            WIRE 3024 224 3024 1408
-            WIRE 64 224 64 832
-            WIRE 64 832 656 832
-            WIRE 656 816 656 832
-            WIRE 2608 1408 3024 1408
+            WIRE 16 256 16 1024
+            WIRE 16 1024 656 1024
+            WIRE 16 256 2704 256
+            WIRE 2704 256 2704 1408
+            WIRE 656 800 656 1024
+            WIRE 2608 1408 2704 1408
         END BRANCH
         BEGIN BRANCH RegData1(63:0)
             WIRE 3728 2544 3840 2544
@@ -520,26 +528,25 @@ BEGIN SCHEMATIC
         BEGIN BRANCH XLXN_111(63:0)
             WIRE 4960 2640 5072 2640
         END BRANCH
-        BEGIN INSTANCE XLXI_54 464 784 R0
-        END INSTANCE
         BEGIN BRANCH PCMux1(63:0)
-            WIRE 496 176 496 640
-            WIRE 496 640 512 640
-            WIRE 496 176 3104 176
-            WIRE 3104 176 3104 1280
-            WIRE 2608 1280 3104 1280
+            WIRE 496 272 496 624
+            WIRE 496 624 512 624
+            WIRE 496 272 2624 272
+            WIRE 2624 272 2624 1280
+            WIRE 2608 1280 2624 1280
         END BRANCH
         BEGIN BRANCH XLXN_114(63:0)
-            WIRE 800 688 848 688
-            WIRE 848 528 848 688
+            WIRE 48 528 48 800
+            WIRE 48 800 96 800
+            WIRE 48 528 848 528
             WIRE 848 528 864 528
+            WIRE 848 528 848 672
+            WIRE 800 672 848 672
         END BRANCH
-        BEGIN INSTANCE XLXI_55 5024 2784 R0
-        END INSTANCE
         BEGIN BRANCH XLXN_115(63:0)
-            WIRE 4960 2768 5008 2768
-            WIRE 5008 2736 5008 2768
-            WIRE 5008 2736 5072 2736
+            WIRE 4960 2768 4976 2768
+            WIRE 4976 2752 5072 2752
+            WIRE 4976 2752 4976 2768
         END BRANCH
         BEGIN BRANCH XLXN_5(63:0)
             WIRE 2608 2368 3040 2368
@@ -569,9 +576,8 @@ BEGIN SCHEMATIC
         END BRANCH
         BEGIN BRANCH clk
             WIRE 80 672 96 672
-            WIRE 80 672 80 960
-            WIRE 80 960 176 960
-            WIRE 176 960 176 2496
+            WIRE 80 672 80 2496
+            WIRE 80 2496 176 2496
             WIRE 176 2496 304 2496
             WIRE 176 2496 176 3200
             WIRE 176 3200 1008 3200
@@ -636,8 +642,6 @@ BEGIN SCHEMATIC
         END INSTANCE
         BEGIN INSTANCE XLXI_58 2208 688 R0
         END INSTANCE
-        BEGIN INSTANCE XLXI_59 2640 2608 R0
-        END INSTANCE
         BEGIN BRANCH XLXN_171(63:0)
             WIRE 2976 2512 2992 2512
             WIRE 2992 2432 3040 2432
@@ -660,10 +664,10 @@ BEGIN SCHEMATIC
         BEGIN INSTANCE XLXI_44 3040 2528 R0
         END INSTANCE
         BEGIN BRANCH ALUnoop(63:0)
-            WIRE 2672 2560 2688 2560
-            WIRE 2672 2560 2672 2640
-            WIRE 2672 2640 2736 2640
-            WIRE 2736 2640 2736 2720
+            WIRE 2672 2576 2688 2576
+            WIRE 2672 2576 2672 2672
+            WIRE 2672 2672 2736 2672
+            WIRE 2736 2672 2736 2720
         END BRANCH
         BEGIN BRANCH ALUnoop(31:0)
             WIRE 2608 2640 2624 2640
@@ -703,8 +707,7 @@ BEGIN SCHEMATIC
         BEGIN BRANCH XLXN_184
             WIRE 2608 1088 2928 1088
             WIRE 2928 1088 2928 2128
-            WIRE 2928 2128 3264 2128
-            WIRE 3264 2128 3472 2128
+            WIRE 2928 2128 3472 2128
         END BRANCH
         BEGIN INSTANCE XLXI_60 4608 2032 R0
         END INSTANCE
@@ -719,5 +722,37 @@ BEGIN SCHEMATIC
             WIRE 5024 2896 5216 2896
             WIRE 5216 2816 5216 2896
         END BRANCH
+        BEGIN BRANCH InstID(29)
+            WIRE 2208 1648 2288 1648
+            BEGIN DISPLAY 2208 1648 ATTR Name
+                ALIGNMENT SOFT-RIGHT
+            END DISPLAY
+        END BRANCH
+        BEGIN BRANCH InstID(28)
+            WIRE 2208 1728 2288 1728
+            BEGIN DISPLAY 2208 1728 ATTR Name
+                ALIGNMENT SOFT-RIGHT
+            END DISPLAY
+        END BRANCH
+        BEGIN BRANCH InstADDR(63:0)
+            WIRE 480 928 496 928
+            WIRE 496 928 496 1136
+            WIRE 496 1136 528 1136
+            BEGIN DISPLAY 528 1136 ATTR Name
+                ALIGNMENT SOFT-LEFT
+            END DISPLAY
+        END BRANCH
+        BEGIN BRANCH InstADDR(7:0)
+            WIRE 240 2304 304 2304
+            BEGIN DISPLAY 240 2304 ATTR Name
+                ALIGNMENT SOFT-RIGHT
+            END DISPLAY
+        END BRANCH
+        BEGIN INSTANCE XLXI_61 480 800 R0
+        END INSTANCE
+        BEGIN INSTANCE XLXI_62 2656 2640 R0
+        END INSTANCE
+        BEGIN INSTANCE XLXI_63 5040 2816 R0
+        END INSTANCE
     END SHEET
 END SCHEMATIC

@@ -7,8 +7,8 @@ BEGIN SCHEMATIC
     END ATTR
     BEGIN NETLIST
         SIGNAL O(63:0)
-        SIGNAL M0
-        SIGNAL M1
+        SIGNAL M0(63:0)
+        SIGNAL M1(63:0)
         SIGNAL D0(63:0)
         SIGNAL D1(63:0)
         SIGNAL S0
@@ -51,17 +51,17 @@ BEGIN SCHEMATIC
         BEGIN BLOCK I_36_9 and2
             PIN I0 D1(63:0)
             PIN I1 S0
-            PIN O M1
+            PIN O M1(63:0)
         END BLOCK
         BEGIN BLOCK I_36_8 or2
-            PIN I0 M1
-            PIN I1 M0
+            PIN I0 M1(63:0)
+            PIN I1 M0(63:0)
             PIN O O(63:0)
         END BLOCK
         BEGIN BLOCK I_36_7 and2b1
             PIN I0 S0
             PIN I1 D0(63:0)
-            PIN O M0
+            PIN O M0(63:0)
         END BLOCK
     END NETLIST
     BEGIN SHEET 1 3840 3040
@@ -76,7 +76,7 @@ BEGIN SCHEMATIC
             END DISPLAY
         END BRANCH
         IOMARKER 2880 1376 O(63:0) R0 28
-        BEGIN BRANCH M0
+        BEGIN BRANCH M0(63:0)
             WIRE 1952 1216 2016 1216
             WIRE 2016 1216 2080 1216
             WIRE 2080 1216 2080 1344
@@ -85,7 +85,7 @@ BEGIN SCHEMATIC
                 ALIGNMENT BCENTER
             END DISPLAY
         END BRANCH
-        BEGIN BRANCH M1
+        BEGIN BRANCH M1(63:0)
             WIRE 1952 1536 2016 1536
             WIRE 2016 1536 2080 1536
             WIRE 2080 1408 2080 1536

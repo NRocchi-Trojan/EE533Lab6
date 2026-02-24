@@ -1,0 +1,3 @@
+sch2verilog -intstyle ise -family virtex2p   -w "Z:/SharedXM/EE533Lab6/PipelinedDatapath/ZeroDetect16.sch" ZeroDetect16.vf
+sch2verilog -intstyle ise -family virtex2p   -w "Z:/SharedXM/EE533Lab6/PipelinedDatapath/ZeroDetect16.sch" ZeroDetect16.vf
+sch2verilog -intstyle ise -family virtex2p   -w "Z:/SharedXM/EE533Lab6/PipelinedDatapath/ZeroDetect16.sch" ZeroDetect16.vf

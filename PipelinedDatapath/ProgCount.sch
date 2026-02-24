@@ -6,16 +6,18 @@ BEGIN SCHEMATIC
         EDITTRAIT all:0
     END ATTR
     BEGIN NETLIST
-        SIGNAL XLXN_1(63:0)
+        SIGNAL ToInst(63:0)
         SIGNAL oper(2:0)
         SIGNAL clk
         SIGNAL ProgCounter(63:0)
         SIGNAL XLXN_9
-        SIGNAL oper(2)
-        SIGNAL oper(1)
-        SIGNAL oper(0)
+        SIGNAL PCIn(63:0)
+        BEGIN SIGNAL Bin(63:0)
+        END SIGNAL
+        PORT Output ToInst(63:0)
         PORT Input clk
         PORT Output ProgCounter(63:0)
+        PORT Input PCIn(63:0)
         BEGIN BLOCKDEF ALU64Bit
             TIMESTAMP 2026 2 22 5 4 4
             RECTANGLE N 64 -256 320 0 
@@ -47,108 +49,87 @@ BEGIN SCHEMATIC
             LINE N 64 0 64 -32 
             LINE N 96 -64 32 -64 
         END BLOCKDEF
-        BEGIN BLOCKDEF gnd
-            TIMESTAMP 2000 1 1 10 10 10
-            LINE N 64 -64 64 -96 
-            LINE N 76 -48 52 -48 
-            LINE N 68 -32 60 -32 
-            LINE N 88 -64 40 -64 
-            LINE N 64 -64 64 -80 
-            LINE N 64 -128 64 -96 
+        BEGIN BLOCKDEF constant
+            TIMESTAMP 2006 1 1 10 10 10
+            RECTANGLE N 0 0 112 64 
+            LINE N 144 32 112 32 
         END BLOCKDEF
         BEGIN BLOCK XLXI_1 ALU64Bit
             PIN op(2:0) oper(2:0)
-            PIN a(63:0) XLXN_1(63:0)
-            PIN b(63:0)
+            PIN a(63:0) ToInst(63:0)
+            PIN b(63:0) Bin(63:0)
             PIN cin
-            PIN res(63:0)
+            PIN res(63:0) ProgCounter(63:0)
             PIN e7
             PIN cout
         END BLOCK
         BEGIN BLOCK XLXI_2 reg64
             PIN clk clk
             PIN en XLXN_9
-            PIN data_in(63:0) ProgCounter(63:0)
-            PIN data_out(63:0) XLXN_1(63:0)
-        END BLOCK
-        BEGIN BLOCK XLXI_7 gnd
-            PIN G oper(2)
-        END BLOCK
-        BEGIN BLOCK XLXI_8 gnd
-            PIN G oper(0)
-        END BLOCK
-        BEGIN BLOCK XLXI_9 vcc
-            PIN P oper(1)
+            PIN data_in(63:0) PCIn(63:0)
+            PIN data_out(63:0) ToInst(63:0)
         END BLOCK
         BEGIN BLOCK XLXI_4 vcc
             PIN P XLXN_9
+        END BLOCK
+        BEGIN BLOCK XLXI_10 constant
+            BEGIN ATTR CValue "00000004"
+                DELETE all:1 sym:0
+                EDITNAME all:1 sch:0
+                VALUETYPE BitVector 32 Hexadecimal
+            END ATTR
+            PIN O Bin(63:0)
+        END BLOCK
+        BEGIN BLOCK XLXI_11 constant
+            BEGIN ATTR CValue "00000002"
+                DELETE all:1 sym:0
+                EDITNAME all:1 sch:0
+                VALUETYPE BitVector 32 Hexadecimal
+            END ATTR
+            PIN O oper(2:0)
         END BLOCK
     END NETLIST
     BEGIN SHEET 1 3520 2720
         BEGIN INSTANCE XLXI_1 1968 1376 R0
         END INSTANCE
-        BEGIN BRANCH XLXN_1(63:0)
-            WIRE 1440 1216 1968 1216
-        END BRANCH
-        BEGIN BRANCH oper(2:0)
-            WIRE 1792 736 1792 848
-            WIRE 1792 848 1792 928
-            WIRE 1792 928 1792 1152
-            WIRE 1792 1152 1968 1152
-            BEGIN DISPLAY 1792 1152 ATTR Name
-                ALIGNMENT SOFT-TCENTER
-            END DISPLAY
+        BEGIN BRANCH ToInst(63:0)
+            WIRE 1440 1216 1600 1216
+            WIRE 1600 1216 1968 1216
+            WIRE 1600 1216 1600 1424
         END BRANCH
         BEGIN INSTANCE XLXI_2 976 1376 R0
         END INSTANCE
         BEGIN BRANCH clk
             WIRE 880 1216 976 1216
         END BRANCH
-        BEGIN BRANCH ProgCounter(63:0)
-            WIRE 752 1040 2416 1040
-            WIRE 2416 1040 2416 1088
-            WIRE 2416 1040 2512 1040
-            WIRE 752 1040 752 1344
-            WIRE 752 1344 976 1344
-            WIRE 2352 1088 2416 1088
-        END BRANCH
         IOMARKER 880 1216 clk R180 28
-        IOMARKER 2512 1040 ProgCounter(63:0) R0 28
-        INSTANCE XLXI_7 1520 1056 R0
-        INSTANCE XLXI_8 1296 864 R0
-        INSTANCE XLXI_9 1424 848 R0
-        BUSTAP 1792 928 1696 928
-        BEGIN BRANCH oper(2)
-            WIRE 1584 928 1632 928
-            WIRE 1632 928 1632 928
-            WIRE 1632 928 1696 928
-            BEGIN DISPLAY 1640 928 ATTR Name
-                ALIGNMENT SOFT-BCENTER
-            END DISPLAY
-        END BRANCH
-        BUSTAP 1792 848 1696 848
-        BEGIN BRANCH oper(1)
-            WIRE 1488 848 1584 848
-            WIRE 1584 848 1584 848
-            WIRE 1584 848 1696 848
-            BEGIN DISPLAY 1592 848 ATTR Name
-                ALIGNMENT SOFT-BCENTER
-            END DISPLAY
-        END BRANCH
-        BUSTAP 1792 736 1696 736
-        BEGIN BRANCH oper(0)
-            WIRE 1360 736 1520 736
-            WIRE 1520 736 1520 736
-            WIRE 1520 736 1696 736
-            BEGIN DISPLAY 1528 736 ATTR Name
-                ALIGNMENT SOFT-BCENTER
-            END DISPLAY
-        END BRANCH
         INSTANCE XLXI_4 720 1024 R0
         BEGIN BRANCH XLXN_9
-            WIRE 784 1024 784 1088
-            WIRE 784 1088 784 1408
+            WIRE 784 1024 784 1408
             WIRE 784 1408 976 1408
         END BRANCH
+        BEGIN BRANCH ProgCounter(63:0)
+            WIRE 2352 1152 2512 1152
+        END BRANCH
+        IOMARKER 2512 1152 ProgCounter(63:0) R0 28
+        BEGIN BRANCH PCIn(63:0)
+            WIRE 752 1344 976 1344
+        END BRANCH
+        IOMARKER 752 1344 PCIn(63:0) R180 28
+        BEGIN BRANCH Bin(63:0)
+            WIRE 1872 1280 1968 1280
+        END BRANCH
+        BEGIN BRANCH oper(2:0)
+            WIRE 1648 1152 1792 1152
+            WIRE 1792 1152 1968 1152
+            BEGIN DISPLAY 1792 1152 ATTR Name
+                ALIGNMENT SOFT-BCENTER
+            END DISPLAY
+        END BRANCH
+        BEGIN INSTANCE XLXI_11 1504 1120 R0
+        END INSTANCE
+        BEGIN INSTANCE XLXI_10 1728 1248 R0
+        END INSTANCE
+        IOMARKER 1600 1424 ToInst(63:0) R90 28
     END SHEET
 END SCHEMATIC

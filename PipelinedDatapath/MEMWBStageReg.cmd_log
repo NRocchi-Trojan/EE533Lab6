@@ -6,3 +6,4 @@ sch2verilog -intstyle ise -family virtex2p   -w "Z:/shared/SharedProjects/EE533L
 sch2verilog -intstyle ise -family virtex2p   -w "Z:/shared/SharedProjects/EE533Lab5-main/PipelinedDatapath/MEMWBStageReg.sch" MEMWBStageReg.vf
 sch2verilog -intstyle ise -family virtex2p   -w "Z:/shared/SharedProjects/EE533Lab5-main/PipelinedDatapath/MEMWBStageReg.sch" MEMWBStageReg.vf
 sch2verilog -intstyle ise -family virtex2p   -w "Z:/SharedXM/EE533Lab5/PipelinedDatapath/MEMWBStageReg.sch" MEMWBStageReg.vf
+sch2verilog -intstyle ise -family virtex2p   -w "Z:/SharedXM/EE533Lab6/PipelinedDatapath/MEMWBStageReg.sch" MEMWBStageReg.vf

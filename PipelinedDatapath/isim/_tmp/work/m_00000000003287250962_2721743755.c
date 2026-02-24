@@ -20,11 +20,11 @@
 #include <malloc.h>
 #define alloca _alloca
 #endif
-static const char *ng0 = "//vmware-host/Shared Folders/shared/SharedProjects/EE533Lab5-main/PipelinedDatapath/reg64.v";
+static const char *ng0 = "//vmware-host/Shared Folders/SharedXM/EE533Lab6/PipelinedDatapath/reg64.v";
 
 
 
-static void A26_0(char *t0)
+static void A25_0(char *t0)
 {
     char *t1;
     char *t2;
@@ -45,15 +45,15 @@ LAB0:    t1 = (t0 + 1440U);
 
 LAB3:    goto *t2;
 
-LAB2:    xsi_set_current_line(26, ng0);
+LAB2:    xsi_set_current_line(25, ng0);
     t2 = (t0 + 1620);
     *((int *)t2) = 1;
     *((char **)t1) = &&LAB4;
 
 LAB1:    return;
-LAB4:    xsi_set_current_line(26, ng0);
+LAB4:    xsi_set_current_line(25, ng0);
 
-LAB5:    xsi_set_current_line(28, ng0);
+LAB5:    xsi_set_current_line(27, ng0);
     t3 = (t0 + 740U);
     t4 = *((char **)t3);
     t3 = (t4 + 4U);
@@ -68,9 +68,9 @@ LAB5:    xsi_set_current_line(28, ng0);
 LAB7:
 LAB8:    goto LAB2;
 
-LAB6:    xsi_set_current_line(28, ng0);
+LAB6:    xsi_set_current_line(27, ng0);
 
-LAB9:    xsi_set_current_line(29, ng0);
+LAB9:    xsi_set_current_line(28, ng0);
     t10 = (t0 + 564U);
     t11 = *((char **)t10);
     t10 = (t0 + 964);
@@ -82,7 +82,7 @@ LAB9:    xsi_set_current_line(29, ng0);
 
 extern void work_m_00000000003287250962_2721743755_init()
 {
-	static char *pe[] = {(void *)A26_0};
+	static char *pe[] = {(void *)A25_0};
 	xsi_register_didat("work_m_00000000003287250962_2721743755", "isim/_tmp/work/m_00000000003287250962_2721743755.didat");
 	xsi_register_executes(pe);
 }

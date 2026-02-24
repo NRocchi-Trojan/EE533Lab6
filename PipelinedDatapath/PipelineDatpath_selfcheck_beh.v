@@ -8,7 +8,7 @@
 // \   \   \/     Version : 10.1
 //  \   \         Application : ISE
 //  /   /         Filename : PipelineDatpath_selfcheck.tfw
-// /___/   /\     Timestamp : Tue Feb 17 17:54:38 2026
+// /___/   /\     Timestamp : Mon Feb 23 22:31:54 2026
 // \   \  /  \ 
 //  \___\/\___\ 
 //
@@ -21,7 +21,6 @@
 module PipelineDatpath_selfcheck_beh;
     reg clk = 1'b0;
     reg [31:0] InstData = 32'b00000000000000000000000000000000;
-    reg rst = 1'b0;
     reg wea = 1'b0;
 
     parameter PERIOD = 20;
@@ -42,7 +41,6 @@ module PipelineDatpath_selfcheck_beh;
     PipelinedDatapath UUT (
         .clk(clk),
         .InstData(InstData),
-        .rst(rst),
         .wea(wea));
 
     integer TX_ERROR = 0;
