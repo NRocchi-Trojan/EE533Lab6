@@ -7,13 +7,17 @@ BEGIN SCHEMATIC
     END ATTR
     BEGIN NETLIST
         SIGNAL clk
-        SIGNAL XLXN_17
+        SIGNAL XLXN_18
         SIGNAL WDataI(63:0)
         SIGNAL WDataO(63:0)
         SIGNAL WREO
         SIGNAL WREI
         SIGNAL WREG1I(1:0)
         SIGNAL WREG1O(1:0)
+        SIGNAL WBAltOut(63:0)
+        SIGNAL MemAltIn(63:0)
+        SIGNAL RTypeMEM
+        SIGNAL RTypeWB
         PORT Input clk
         PORT Input WDataI(63:0)
         PORT Output WDataO(63:0)
@@ -21,6 +25,10 @@ BEGIN SCHEMATIC
         PORT Input WREI
         PORT Input WREG1I(1:0)
         PORT Output WREG1O(1:0)
+        PORT Output WBAltOut(63:0)
+        PORT Input MemAltIn(63:0)
+        PORT Input RTypeMEM
+        PORT Output RTypeWB
         BEGIN BLOCKDEF fd
             TIMESTAMP 2000 1 1 10 10 10
             RECTANGLE N 64 -320 320 -64 
@@ -62,19 +70,30 @@ BEGIN SCHEMATIC
             PIN Q WREO
         END BLOCK
         BEGIN BLOCK XLXI_7 vcc
-            PIN P XLXN_17
+            PIN P XLXN_18
         END BLOCK
         BEGIN BLOCK XLXI_9 reg64
             PIN clk clk
-            PIN en XLXN_17
+            PIN en XLXN_18
             PIN data_in(63:0) WDataI(63:0)
             PIN data_out(63:0) WDataO(63:0)
         END BLOCK
         BEGIN BLOCK XLXI_11 reg2
-            PIN clk XLXN_17
+            PIN clk XLXN_18
             PIN en clk
             PIN data_in(1:0) WREG1I(1:0)
             PIN data_out(1:0) WREG1O(1:0)
+        END BLOCK
+        BEGIN BLOCK XLXI_12 reg64
+            PIN clk clk
+            PIN en XLXN_18
+            PIN data_in(63:0) MemAltIn(63:0)
+            PIN data_out(63:0) WBAltOut(63:0)
+        END BLOCK
+        BEGIN BLOCK XLXI_32 fd
+            PIN C clk
+            PIN D RTypeMEM
+            PIN Q RTypeWB
         END BLOCK
     END NETLIST
     BEGIN SHEET 1 3520 2720
@@ -94,11 +113,13 @@ BEGIN SCHEMATIC
             END DISPLAY
         END BRANCH
         IOMARKER 2880 832 WDataO(63:0) R0 28
-        BEGIN BRANCH XLXN_17
+        BEGIN BRANCH XLXN_18
             WIRE 1440 752 1440 1392
             WIRE 1440 1392 1552 1392
-            WIRE 1440 1392 1440 2208
+            WIRE 1440 1392 1440 1856
+            WIRE 1440 1856 1440 2208
             WIRE 1440 2208 1536 2208
+            WIRE 1440 1856 1552 1856
         END BRANCH
         BEGIN INSTANCE XLXI_9 1552 1360 R0
         END INSTANCE
@@ -124,11 +145,15 @@ BEGIN SCHEMATIC
         END BRANCH
         BEGIN BRANCH clk
             WIRE 1440 608 1520 608
-            WIRE 1520 608 1520 1200
-            WIRE 1520 1200 1552 1200
-            WIRE 1520 1200 1520 2272
-            WIRE 1520 2272 1536 2272
             WIRE 1520 608 1552 608
+            WIRE 1520 608 1520 976
+            WIRE 1520 976 1520 1200
+            WIRE 1520 1200 1552 1200
+            WIRE 1520 1200 1520 1664
+            WIRE 1520 1664 1520 2272
+            WIRE 1520 2272 1536 2272
+            WIRE 1520 1664 1552 1664
+            WIRE 1520 976 1552 976
         END BRANCH
         IOMARKER 1440 608 clk R180 28
         BEGIN INSTANCE XLXI_11 1536 2368 R0
@@ -141,5 +166,24 @@ BEGIN SCHEMATIC
             WIRE 1920 2208 2080 2208
         END BRANCH
         IOMARKER 2080 2208 WREG1O(1:0) R0 28
+        BEGIN BRANCH WBAltOut(63:0)
+            WIRE 2016 1664 2080 1664
+        END BRANCH
+        BEGIN BRANCH MemAltIn(63:0)
+            WIRE 1392 1792 1552 1792
+        END BRANCH
+        BEGIN INSTANCE XLXI_12 1552 1824 R0
+        END INSTANCE
+        IOMARKER 1392 1792 MemAltIn(63:0) R180 28
+        IOMARKER 2080 1664 WBAltOut(63:0) R0 28
+        BEGIN BRANCH RTypeMEM
+            WIRE 1392 848 1552 848
+        END BRANCH
+        BEGIN BRANCH RTypeWB
+            WIRE 1936 848 2096 848
+        END BRANCH
+        INSTANCE XLXI_32 1552 1104 R0
+        IOMARKER 1392 848 RTypeMEM R180 28
+        IOMARKER 2096 848 RTypeWB R0 28
     END SHEET
 END SCHEMATIC

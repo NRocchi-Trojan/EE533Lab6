@@ -2,8 +2,8 @@
 //////////////////////////////////////////////////////////////////////////////////
 // 
 // Create Date:    11:45:54 02/13/2026 
-// Design Name: 		register_64bit 
-// Module Name:    reg64 
+// Design Name: 		register_3bit 
+// Module Name:    reg3 
 // Project Name: reg_file
 // Description:
 //		On every positive clock edge, or when the reset signal transitions from high to low (active low reset), the module behaves as follows:
@@ -17,17 +17,17 @@
 //
 //////////////////////////////////////////////////////////////////////////////////
 //64 bit register with asynchronous,active low reset. Also write its testbench.
-module reg64(input wire [64-1:0] data_in,
-input wire clk,
-input wire en,
-output reg [64-1:0] data_out);
+module reg3(
+	input wire [3-1:0] data_in,
+	input wire clk,
+	output reg [3-1:0] data_out
+	);
 
-always@(posedge clk)begin 
 
-if(en)begin
-  data_out <= data_in;
-end
+	always@(posedge clk)begin 
 
-end
+		data_out <= data_in;
+
+	end
 
 endmodule

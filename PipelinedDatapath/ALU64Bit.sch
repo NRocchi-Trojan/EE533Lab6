@@ -51,7 +51,6 @@ BEGIN SCHEMATIC
         SIGNAL b(7:0)
         SIGNAL a(7:0)
         SIGNAL cout
-        SIGNAL XLXN_340
         SIGNAL XLXN_341
         SIGNAL XLXN_342
         SIGNAL cin

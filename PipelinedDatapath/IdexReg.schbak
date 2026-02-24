@@ -20,8 +20,6 @@ BEGIN SCHEMATIC
         SIGNAL REG2O(63:0)
         SIGNAL PCI(63:0)
         SIGNAL PCO(63:0)
-        SIGNAL RTypeEX
-        SIGNAL RTypeMEM
         PORT Input clk
         PORT Input WMEI
         PORT Input WREI
@@ -35,8 +33,6 @@ BEGIN SCHEMATIC
         PORT Output REG2O(63:0)
         PORT Input PCI(63:0)
         PORT Output PCO(63:0)
-        PORT Input RTypeEX
-        PORT Output RTypeMEM
         BEGIN BLOCKDEF fd
             TIMESTAMP 2000 1 1 10 10 10
             RECTANGLE N 64 -320 320 -64 
@@ -109,11 +105,6 @@ BEGIN SCHEMATIC
             PIN data_in(63:0) PCI(63:0)
             PIN data_out(63:0) PCO(63:0)
         END BLOCK
-        BEGIN BLOCK XLXI_32 fd
-            PIN C clk
-            PIN D RTypeEX
-            PIN Q RTypeMEM
-        END BLOCK
     END NETLIST
     BEGIN SHEET 1 3520 2720
         INSTANCE XLXI_5 1552 736 R0
@@ -163,14 +154,12 @@ BEGIN SCHEMATIC
             WIRE 1520 608 1552 608
             WIRE 1520 608 1520 896
             WIRE 1520 896 1552 896
-            WIRE 1520 896 1520 1152
-            WIRE 1520 1152 1520 1344
+            WIRE 1520 896 1520 1344
             WIRE 1520 1344 1520 1760
             WIRE 1520 1760 1520 2128
             WIRE 1520 2128 1536 2128
             WIRE 1520 1760 1552 1760
             WIRE 1520 1344 1552 1344
-            WIRE 1520 1152 2704 1152
         END BRANCH
         BEGIN BRANCH XLXN_17
             WIRE 1440 752 1440 1088
@@ -202,14 +191,5 @@ BEGIN SCHEMATIC
         END INSTANCE
         IOMARKER 1392 1472 PCI(63:0) R180 28
         IOMARKER 2176 1344 PCO(63:0) R0 28
-        BEGIN BRANCH RTypeEX
-            WIRE 2544 1024 2704 1024
-        END BRANCH
-        BEGIN BRANCH RTypeMEM
-            WIRE 3088 1024 3248 1024
-        END BRANCH
-        INSTANCE XLXI_32 2704 1280 R0
-        IOMARKER 2544 1024 RTypeEX R180 28
-        IOMARKER 3248 1024 RTypeMEM R0 28
     END SHEET
 END SCHEMATIC

@@ -23,7 +23,6 @@ BEGIN SCHEMATIC
         SIGNAL XLXN_20
         SIGNAL XLXN_84
         SIGNAL XLXN_93
-        SIGNAL XLXN_124
         SIGNAL Gp
         SIGNAL XLXN_49
         SIGNAL cout

@@ -41,7 +41,6 @@ BEGIN SCHEMATIC
         SIGNAL a(2)
         SIGNAL a(3)
         SIGNAL a(0)
-        SIGNAL XLXN_65
         SIGNAL XLXN_66
         SIGNAL op(2)
         SIGNAL op(1)
@@ -49,10 +48,7 @@ BEGIN SCHEMATIC
         SIGNAL XLXN_82
         SIGNAL a(1)
         SIGNAL b(1)
-        SIGNAL XLXN_95
         SIGNAL XLXN_96
-        SIGNAL XLXN_97
-        SIGNAL XLXN_98
         SIGNAL Ei
         SIGNAL g0
         SIGNAL e0
@@ -70,7 +66,6 @@ BEGIN SCHEMATIC
         SIGNAL g7
         SIGNAL eo
         SIGNAL e5
-        SIGNAL XLXN_134
         SIGNAL op(0)
         SIGNAL Gi
         PORT Output res(7:0)
