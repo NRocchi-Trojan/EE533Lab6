@@ -8,7 +8,7 @@
 // \   \   \/     Version : 10.1
 //  \   \         Application : ISE
 //  /   /         Filename : PipelineDatpath_selfcheck.tfw
-// /___/   /\     Timestamp : Mon Feb 23 22:31:54 2026
+// /___/   /\     Timestamp : Thu Mar 12 22:19:46 2026
 // \   \  /  \ 
 //  \___\/\___\ 
 //
@@ -22,6 +22,8 @@ module PipelineDatpath_selfcheck;
     reg clk = 1'b0;
     reg [31:0] InstData = 32'b00000000000000000000000000000000;
     reg wea = 1'b0;
+    wire [63:0] PC_Res;
+    wire [63:0] WB_Res;
 
     parameter PERIOD = 20;
     parameter real DUTY_CYCLE = 0.5;
@@ -41,7 +43,9 @@ module PipelineDatpath_selfcheck;
     PipelinedDatapath UUT (
         .clk(clk),
         .InstData(InstData),
-        .wea(wea));
+        .wea(wea),
+        .PC_Res(PC_Res),
+        .WB_Res(WB_Res));
 
     integer TX_ERROR = 0;
     
@@ -58,6 +62,26 @@ module PipelineDatpath_selfcheck;
     initial begin
     end
 
+    task CHECK_PC_Res;
+        input [63:0] NEXT_PC_Res;
+
+        #0 begin
+            if (NEXT_PC_Res !== PC_Res) begin
+                $display("Error at time=%dns PC_Res=%b, expected=%b", $time, PC_Res, NEXT_PC_Res);
+                TX_ERROR = TX_ERROR + 1;
+            end
+        end
+    endtask
+    task CHECK_WB_Res;
+        input [63:0] NEXT_WB_Res;
+
+        #0 begin
+            if (NEXT_WB_Res !== WB_Res) begin
+                $display("Error at time=%dns WB_Res=%b, expected=%b", $time, WB_Res, NEXT_WB_Res);
+                TX_ERROR = TX_ERROR + 1;
+            end
+        end
+    endtask
 
 endmodule
 

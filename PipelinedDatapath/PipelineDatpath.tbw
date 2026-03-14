@@ -1,9 +1,9 @@
 version 3
-Z:/shared/SharedProjects/EE533Lab5-main/PipelinedDatapath/PipelinedDatapath.vf
+Z:/SharedXM/EE533Lab6/PipelinedDatapath/PipelinedDatapath.vf
 PipelinedDatapath
 VERILOG
 VERILOG
-Z:/shared/SharedProjects/EE533Lab5-main/PipelinedDatapath/PipelineDatpath.xwv
+Z:/SharedXM/EE533Lab6/PipelinedDatapath/PipelineDatpath.xwv
 Clocked
 -
 -
@@ -41,7 +41,6 @@ SIGNAL_ORDER_BEGIN
 clk
 wea
 InstData
-rst
 SIGNAL_ORDER_END
 DIFFERENTIAL_CLKS_BEGIN
 DIFFERENTIAL_CLKS_END

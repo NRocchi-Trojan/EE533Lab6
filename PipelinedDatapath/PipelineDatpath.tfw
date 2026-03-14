@@ -8,7 +8,7 @@
 // \   \   \/     Version : 10.1
 //  \   \         Application : ISE
 //  /   /         Filename : PipelineDatpath.tfw
-// /___/   /\     Timestamp : Mon Feb 23 22:31:07 2026
+// /___/   /\     Timestamp : Thu Mar 12 22:18:55 2026
 // \   \  /  \ 
 //  \___\/\___\ 
 //
@@ -22,6 +22,8 @@ module PipelineDatpath;
     reg clk = 1'b0;
     reg [31:0] InstData = 32'b00000000000000000000000000000000;
     reg wea = 1'b0;
+    wire [63:0] PC_Res;
+    wire [63:0] WB_Res;
 
     parameter PERIOD = 20;
     parameter real DUTY_CYCLE = 0.5;
@@ -41,7 +43,9 @@ module PipelineDatpath;
     PipelinedDatapath UUT (
         .clk(clk),
         .InstData(InstData),
-        .wea(wea));
+        .wea(wea),
+        .PC_Res(PC_Res),
+        .WB_Res(WB_Res));
 
     initial begin
     end

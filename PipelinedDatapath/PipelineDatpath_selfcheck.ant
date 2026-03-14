@@ -8,7 +8,7 @@
 // \   \   \/     Version : 10.1
 //  \   \         Application : ISE
 //  /   /         Filename : PipelineDatpath_selfcheck.ant
-// /___/   /\     Timestamp : Mon Feb 23 22:31:55 2026
+// /___/   /\     Timestamp : Thu Mar 12 22:19:46 2026
 // \   \  /  \ 
 //  \___\/\___\ 
 //
@@ -22,6 +22,8 @@ module PipelineDatpath_selfcheck;
     reg clk = 1'b0;
     reg [31:0] InstData = 32'b00000000000000000000000000000000;
     reg wea = 1'b0;
+    wire [63:0] PC_Res;
+    wire [63:0] WB_Res;
 
     parameter PERIOD = 20;
     parameter real DUTY_CYCLE = 0.5;
@@ -41,11 +43,26 @@ module PipelineDatpath_selfcheck;
     PipelinedDatapath UUT (
         .clk(clk),
         .InstData(InstData),
-        .wea(wea));
+        .wea(wea),
+        .PC_Res(PC_Res),
+        .WB_Res(WB_Res));
 
     integer TX_FILE = 0;
     integer TX_ERROR = 0;
     
+    initial begin    // Annotation process for clock clk
+        #0;
+        ANNOTATE_PC_Res;
+        ANNOTATE_WB_Res;
+        #OFFSET;
+        forever begin
+            #15;
+            ANNOTATE_PC_Res;
+            ANNOTATE_WB_Res;
+            #5;
+        end
+    end
+
     initial begin  // Open the annotations file...
         TX_FILE = $fopen("\\\\vmware-host\\shared folders\\SharedXM\\EE533Lab6\\PipelinedDatapath\\PipelineDatpath_selfcheck.ano");
         #1020 // Final time:  1020 ns
@@ -57,6 +74,22 @@ module PipelineDatpath_selfcheck;
 
     initial begin
     end
+
+    task ANNOTATE_PC_Res;
+        #0 begin
+            $fdisplay(TX_FILE, "Annotate[%d,PC_Res,%b]", $time, PC_Res);
+            $fflush(TX_FILE);
+            TX_ERROR = TX_ERROR + 1;
+        end
+    endtask
+
+    task ANNOTATE_WB_Res;
+        #0 begin
+            $fdisplay(TX_FILE, "Annotate[%d,WB_Res,%b]", $time, WB_Res);
+            $fflush(TX_FILE);
+            TX_ERROR = TX_ERROR + 1;
+        end
+    endtask
 
 endmodule
 
