@@ -102,3 +102,334 @@ WARNING:Simulator:29 - at 1.000 us: Warning: Timing violation in
    /Pipeline_Datapath_tb/UUT/XLXI_34/inst/  $recovery( CLKA:1.000 us, CLKB:1.000
    us,1.000 ns)
 
+isimrun 1000 ns 
+WARNING:Simulator:29 - at 1.100 us: Warning: Timing violation in
+   /Pipeline_Datapath_tb/UUT/XLXI_34/inst/  $recovery( CLKB:1.100 us, CLKA:1.100
+   us,1.000 ns)
+
+WARNING:Simulator:29 - at 1.100 us: Warning: Timing violation in
+   /Pipeline_Datapath_tb/UUT/XLXI_34/inst/  $recovery( CLKA:1.100 us, CLKB:1.100
+   us,1.000 ns)
+
+WARNING:Simulator:29 - at 1.200 us: Warning: Timing violation in
+   /Pipeline_Datapath_tb/UUT/XLXI_34/inst/  $recovery( CLKB:1.200 us, CLKA:1.200
+   us,1.000 ns)
+
+WARNING:Simulator:29 - at 1.200 us: Warning: Timing violation in
+   /Pipeline_Datapath_tb/UUT/XLXI_34/inst/  $recovery( CLKA:1.200 us, CLKB:1.200
+   us,1.000 ns)
+
+WARNING:Simulator:29 - at 1.300 us: Warning: Timing violation in
+   /Pipeline_Datapath_tb/UUT/XLXI_34/inst/  $recovery( CLKB:1.300 us, CLKA:1.300
+   us,1.000 ns)
+
+WARNING:Simulator:29 - at 1.300 us: Warning: Timing violation in
+   /Pipeline_Datapath_tb/UUT/XLXI_34/inst/  $recovery( CLKA:1.300 us, CLKB:1.300
+   us,1.000 ns)
+
+WARNING:Simulator:29 - at 1.400 us: Warning: Timing violation in
+   /Pipeline_Datapath_tb/UUT/XLXI_34/inst/  $recovery( CLKB:1.400 us, CLKA:1.400
+   us,1.000 ns)
+
+WARNING:Simulator:29 - at 1.400 us: Warning: Timing violation in
+   /Pipeline_Datapath_tb/UUT/XLXI_34/inst/  $recovery( CLKA:1.400 us, CLKB:1.400
+   us,1.000 ns)
+
+WARNING:Simulator:29 - at 1.500 us: Warning: Timing violation in
+   /Pipeline_Datapath_tb/UUT/XLXI_34/inst/  $recovery( CLKB:1.500 us, CLKA:1.500
+   us,1.000 ns)
+
+WARNING:Simulator:29 - at 1.500 us: Warning: Timing violation in
+   /Pipeline_Datapath_tb/UUT/XLXI_34/inst/  $recovery( CLKA:1.500 us, CLKB:1.500
+   us,1.000 ns)
+
+WARNING:Simulator:29 - at 1.600 us: Warning: Timing violation in
+   /Pipeline_Datapath_tb/UUT/XLXI_34/inst/  $recovery( CLKB:1.600 us, CLKA:1.600
+   us,1.000 ns)
+
+WARNING:Simulator:29 - at 1.600 us: Warning: Timing violation in
+   /Pipeline_Datapath_tb/UUT/XLXI_34/inst/  $recovery( CLKA:1.600 us, CLKB:1.600
+   us,1.000 ns)
+
+WARNING:Simulator:29 - at 1.700 us: Warning: Timing violation in
+   /Pipeline_Datapath_tb/UUT/XLXI_34/inst/  $recovery( CLKB:1.700 us, CLKA:1.700
+   us,1.000 ns)
+
+WARNING:Simulator:29 - at 1.700 us: Warning: Timing violation in
+   /Pipeline_Datapath_tb/UUT/XLXI_34/inst/  $recovery( CLKA:1.700 us, CLKB:1.700
+   us,1.000 ns)
+
+WARNING:Simulator:29 - at 1.800 us: Warning: Timing violation in
+   /Pipeline_Datapath_tb/UUT/XLXI_34/inst/  $recovery( CLKB:1.800 us, CLKA:1.800
+   us,1.000 ns)
+
+WARNING:Simulator:29 - at 1.800 us: Warning: Timing violation in
+   /Pipeline_Datapath_tb/UUT/XLXI_34/inst/  $recovery( CLKA:1.800 us, CLKB:1.800
+   us,1.000 ns)
+
+WARNING:Simulator:29 - at 1.900 us: Warning: Timing violation in
+   /Pipeline_Datapath_tb/UUT/XLXI_34/inst/  $recovery( CLKB:1.900 us, CLKA:1.900
+   us,1.000 ns)
+
+WARNING:Simulator:29 - at 1.900 us: Warning: Timing violation in
+   /Pipeline_Datapath_tb/UUT/XLXI_34/inst/  $recovery( CLKA:1.900 us, CLKB:1.900
+   us,1.000 ns)
+
+WARNING:Simulator:29 - at 2.000 us: Warning: Timing violation in
+   /Pipeline_Datapath_tb/UUT/XLXI_34/inst/  $recovery( CLKB:2.000 us, CLKA:2.000
+   us,1.000 ns)
+
+WARNING:Simulator:29 - at 2.000 us: Warning: Timing violation in
+   /Pipeline_Datapath_tb/UUT/XLXI_34/inst/  $recovery( CLKA:2.000 us, CLKB:2.000
+   us,1.000 ns)
+
+isimrun 1000 ns 
+WARNING:Simulator:29 - at 2.100 us: Warning: Timing violation in
+   /Pipeline_Datapath_tb/UUT/XLXI_34/inst/  $recovery( CLKB:2.100 us, CLKA:2.100
+   us,1.000 ns)
+
+WARNING:Simulator:29 - at 2.100 us: Warning: Timing violation in
+   /Pipeline_Datapath_tb/UUT/XLXI_34/inst/  $recovery( CLKA:2.100 us, CLKB:2.100
+   us,1.000 ns)
+
+WARNING:Simulator:29 - at 2.200 us: Warning: Timing violation in
+   /Pipeline_Datapath_tb/UUT/XLXI_34/inst/  $recovery( CLKB:2.200 us, CLKA:2.200
+   us,1.000 ns)
+
+WARNING:Simulator:29 - at 2.200 us: Warning: Timing violation in
+   /Pipeline_Datapath_tb/UUT/XLXI_34/inst/  $recovery( CLKA:2.200 us, CLKB:2.200
+   us,1.000 ns)
+
+WARNING:Simulator:29 - at 2.300 us: Warning: Timing violation in
+   /Pipeline_Datapath_tb/UUT/XLXI_34/inst/  $recovery( CLKB:2.300 us, CLKA:2.300
+   us,1.000 ns)
+
+WARNING:Simulator:29 - at 2.300 us: Warning: Timing violation in
+   /Pipeline_Datapath_tb/UUT/XLXI_34/inst/  $recovery( CLKA:2.300 us, CLKB:2.300
+   us,1.000 ns)
+
+WARNING:Simulator:29 - at 2.400 us: Warning: Timing violation in
+   /Pipeline_Datapath_tb/UUT/XLXI_34/inst/  $recovery( CLKB:2.400 us, CLKA:2.400
+   us,1.000 ns)
+
+WARNING:Simulator:29 - at 2.400 us: Warning: Timing violation in
+   /Pipeline_Datapath_tb/UUT/XLXI_34/inst/  $recovery( CLKA:2.400 us, CLKB:2.400
+   us,1.000 ns)
+
+WARNING:Simulator:29 - at 2.500 us: Warning: Timing violation in
+   /Pipeline_Datapath_tb/UUT/XLXI_34/inst/  $recovery( CLKB:2.500 us, CLKA:2.500
+   us,1.000 ns)
+
+WARNING:Simulator:29 - at 2.500 us: Warning: Timing violation in
+   /Pipeline_Datapath_tb/UUT/XLXI_34/inst/  $recovery( CLKA:2.500 us, CLKB:2.500
+   us,1.000 ns)
+
+WARNING:Simulator:29 - at 2.600 us: Warning: Timing violation in
+   /Pipeline_Datapath_tb/UUT/XLXI_34/inst/  $recovery( CLKB:2.600 us, CLKA:2.600
+   us,1.000 ns)
+
+WARNING:Simulator:29 - at 2.600 us: Warning: Timing violation in
+   /Pipeline_Datapath_tb/UUT/XLXI_34/inst/  $recovery( CLKA:2.600 us, CLKB:2.600
+   us,1.000 ns)
+
+WARNING:Simulator:29 - at 2.700 us: Warning: Timing violation in
+   /Pipeline_Datapath_tb/UUT/XLXI_34/inst/  $recovery( CLKB:2.700 us, CLKA:2.700
+   us,1.000 ns)
+
+WARNING:Simulator:29 - at 2.700 us: Warning: Timing violation in
+   /Pipeline_Datapath_tb/UUT/XLXI_34/inst/  $recovery( CLKA:2.700 us, CLKB:2.700
+   us,1.000 ns)
+
+WARNING:Simulator:29 - at 2.800 us: Warning: Timing violation in
+   /Pipeline_Datapath_tb/UUT/XLXI_34/inst/  $recovery( CLKB:2.800 us, CLKA:2.800
+   us,1.000 ns)
+
+WARNING:Simulator:29 - at 2.800 us: Warning: Timing violation in
+   /Pipeline_Datapath_tb/UUT/XLXI_34/inst/  $recovery( CLKA:2.800 us, CLKB:2.800
+   us,1.000 ns)
+
+WARNING:Simulator:29 - at 2.900 us: Warning: Timing violation in
+   /Pipeline_Datapath_tb/UUT/XLXI_34/inst/  $recovery( CLKB:2.900 us, CLKA:2.900
+   us,1.000 ns)
+
+WARNING:Simulator:29 - at 2.900 us: Warning: Timing violation in
+   /Pipeline_Datapath_tb/UUT/XLXI_34/inst/  $recovery( CLKA:2.900 us, CLKB:2.900
+   us,1.000 ns)
+
+WARNING:Simulator:29 - at 3.000 us: Warning: Timing violation in
+   /Pipeline_Datapath_tb/UUT/XLXI_34/inst/  $recovery( CLKB:3.000 us, CLKA:3.000
+   us,1.000 ns)
+
+WARNING:Simulator:29 - at 3.000 us: Warning: Timing violation in
+   /Pipeline_Datapath_tb/UUT/XLXI_34/inst/  $recovery( CLKA:3.000 us, CLKB:3.000
+   us,1.000 ns)
+
+isimrun 1000 ns 
+WARNING:Simulator:29 - at 3.100 us: Warning: Timing violation in
+   /Pipeline_Datapath_tb/UUT/XLXI_34/inst/  $recovery( CLKB:3.100 us, CLKA:3.100
+   us,1.000 ns)
+
+WARNING:Simulator:29 - at 3.100 us: Warning: Timing violation in
+   /Pipeline_Datapath_tb/UUT/XLXI_34/inst/  $recovery( CLKA:3.100 us, CLKB:3.100
+   us,1.000 ns)
+
+WARNING:Simulator:29 - at 3.200 us: Warning: Timing violation in
+   /Pipeline_Datapath_tb/UUT/XLXI_34/inst/  $recovery( CLKB:3.200 us, CLKA:3.200
+   us,1.000 ns)
+
+WARNING:Simulator:29 - at 3.200 us: Warning: Timing violation in
+   /Pipeline_Datapath_tb/UUT/XLXI_34/inst/  $recovery( CLKA:3.200 us, CLKB:3.200
+   us,1.000 ns)
+
+WARNING:Simulator:29 - at 3.300 us: Warning: Timing violation in
+   /Pipeline_Datapath_tb/UUT/XLXI_34/inst/  $recovery( CLKB:3.300 us, CLKA:3.300
+   us,1.000 ns)
+
+WARNING:Simulator:29 - at 3.300 us: Warning: Timing violation in
+   /Pipeline_Datapath_tb/UUT/XLXI_34/inst/  $recovery( CLKA:3.300 us, CLKB:3.300
+   us,1.000 ns)
+
+WARNING:Simulator:29 - at 3.400 us: Warning: Timing violation in
+   /Pipeline_Datapath_tb/UUT/XLXI_34/inst/  $recovery( CLKB:3.400 us, CLKA:3.400
+   us,1.000 ns)
+
+WARNING:Simulator:29 - at 3.400 us: Warning: Timing violation in
+   /Pipeline_Datapath_tb/UUT/XLXI_34/inst/  $recovery( CLKA:3.400 us, CLKB:3.400
+   us,1.000 ns)
+
+WARNING:Simulator:29 - at 3.500 us: Warning: Timing violation in
+   /Pipeline_Datapath_tb/UUT/XLXI_34/inst/  $recovery( CLKB:3.500 us, CLKA:3.500
+   us,1.000 ns)
+
+WARNING:Simulator:29 - at 3.500 us: Warning: Timing violation in
+   /Pipeline_Datapath_tb/UUT/XLXI_34/inst/  $recovery( CLKA:3.500 us, CLKB:3.500
+   us,1.000 ns)
+
+WARNING:Simulator:29 - at 3.600 us: Warning: Timing violation in
+   /Pipeline_Datapath_tb/UUT/XLXI_34/inst/  $recovery( CLKB:3.600 us, CLKA:3.600
+   us,1.000 ns)
+
+WARNING:Simulator:29 - at 3.600 us: Warning: Timing violation in
+   /Pipeline_Datapath_tb/UUT/XLXI_34/inst/  $recovery( CLKA:3.600 us, CLKB:3.600
+   us,1.000 ns)
+
+WARNING:Simulator:29 - at 3.700 us: Warning: Timing violation in
+   /Pipeline_Datapath_tb/UUT/XLXI_34/inst/  $recovery( CLKB:3.700 us, CLKA:3.700
+   us,1.000 ns)
+
+WARNING:Simulator:29 - at 3.700 us: Warning: Timing violation in
+   /Pipeline_Datapath_tb/UUT/XLXI_34/inst/  $recovery( CLKA:3.700 us, CLKB:3.700
+   us,1.000 ns)
+
+WARNING:Simulator:29 - at 3.800 us: Warning: Timing violation in
+   /Pipeline_Datapath_tb/UUT/XLXI_34/inst/  $recovery( CLKB:3.800 us, CLKA:3.800
+   us,1.000 ns)
+
+WARNING:Simulator:29 - at 3.800 us: Warning: Timing violation in
+   /Pipeline_Datapath_tb/UUT/XLXI_34/inst/  $recovery( CLKA:3.800 us, CLKB:3.800
+   us,1.000 ns)
+
+WARNING:Simulator:29 - at 3.900 us: Warning: Timing violation in
+   /Pipeline_Datapath_tb/UUT/XLXI_34/inst/  $recovery( CLKB:3.900 us, CLKA:3.900
+   us,1.000 ns)
+
+WARNING:Simulator:29 - at 3.900 us: Warning: Timing violation in
+   /Pipeline_Datapath_tb/UUT/XLXI_34/inst/  $recovery( CLKA:3.900 us, CLKB:3.900
+   us,1.000 ns)
+
+WARNING:Simulator:29 - at 4.000 us: Warning: Timing violation in
+   /Pipeline_Datapath_tb/UUT/XLXI_34/inst/  $recovery( CLKB:4.000 us, CLKA:4.000
+   us,1.000 ns)
+
+WARNING:Simulator:29 - at 4.000 us: Warning: Timing violation in
+   /Pipeline_Datapath_tb/UUT/XLXI_34/inst/  $recovery( CLKA:4.000 us, CLKB:4.000
+   us,1.000 ns)
+
+isimrun 1000 ns 
+WARNING:Simulator:29 - at 4.100 us: Warning: Timing violation in
+   /Pipeline_Datapath_tb/UUT/XLXI_34/inst/  $recovery( CLKB:4.100 us, CLKA:4.100
+   us,1.000 ns)
+
+WARNING:Simulator:29 - at 4.100 us: Warning: Timing violation in
+   /Pipeline_Datapath_tb/UUT/XLXI_34/inst/  $recovery( CLKA:4.100 us, CLKB:4.100
+   us,1.000 ns)
+
+WARNING:Simulator:29 - at 4.200 us: Warning: Timing violation in
+   /Pipeline_Datapath_tb/UUT/XLXI_34/inst/  $recovery( CLKB:4.200 us, CLKA:4.200
+   us,1.000 ns)
+
+WARNING:Simulator:29 - at 4.200 us: Warning: Timing violation in
+   /Pipeline_Datapath_tb/UUT/XLXI_34/inst/  $recovery( CLKA:4.200 us, CLKB:4.200
+   us,1.000 ns)
+
+WARNING:Simulator:29 - at 4.300 us: Warning: Timing violation in
+   /Pipeline_Datapath_tb/UUT/XLXI_34/inst/  $recovery( CLKB:4.300 us, CLKA:4.300
+   us,1.000 ns)
+
+WARNING:Simulator:29 - at 4.300 us: Warning: Timing violation in
+   /Pipeline_Datapath_tb/UUT/XLXI_34/inst/  $recovery( CLKA:4.300 us, CLKB:4.300
+   us,1.000 ns)
+
+WARNING:Simulator:29 - at 4.400 us: Warning: Timing violation in
+   /Pipeline_Datapath_tb/UUT/XLXI_34/inst/  $recovery( CLKB:4.400 us, CLKA:4.400
+   us,1.000 ns)
+
+WARNING:Simulator:29 - at 4.400 us: Warning: Timing violation in
+   /Pipeline_Datapath_tb/UUT/XLXI_34/inst/  $recovery( CLKA:4.400 us, CLKB:4.400
+   us,1.000 ns)
+
+WARNING:Simulator:29 - at 4.500 us: Warning: Timing violation in
+   /Pipeline_Datapath_tb/UUT/XLXI_34/inst/  $recovery( CLKB:4.500 us, CLKA:4.500
+   us,1.000 ns)
+
+WARNING:Simulator:29 - at 4.500 us: Warning: Timing violation in
+   /Pipeline_Datapath_tb/UUT/XLXI_34/inst/  $recovery( CLKA:4.500 us, CLKB:4.500
+   us,1.000 ns)
+
+WARNING:Simulator:29 - at 4.600 us: Warning: Timing violation in
+   /Pipeline_Datapath_tb/UUT/XLXI_34/inst/  $recovery( CLKB:4.600 us, CLKA:4.600
+   us,1.000 ns)
+
+WARNING:Simulator:29 - at 4.600 us: Warning: Timing violation in
+   /Pipeline_Datapath_tb/UUT/XLXI_34/inst/  $recovery( CLKA:4.600 us, CLKB:4.600
+   us,1.000 ns)
+
+WARNING:Simulator:29 - at 4.700 us: Warning: Timing violation in
+   /Pipeline_Datapath_tb/UUT/XLXI_34/inst/  $recovery( CLKB:4.700 us, CLKA:4.700
+   us,1.000 ns)
+
+WARNING:Simulator:29 - at 4.700 us: Warning: Timing violation in
+   /Pipeline_Datapath_tb/UUT/XLXI_34/inst/  $recovery( CLKA:4.700 us, CLKB:4.700
+   us,1.000 ns)
+
+WARNING:Simulator:29 - at 4.800 us: Warning: Timing violation in
+   /Pipeline_Datapath_tb/UUT/XLXI_34/inst/  $recovery( CLKB:4.800 us, CLKA:4.800
+   us,1.000 ns)
+
+WARNING:Simulator:29 - at 4.800 us: Warning: Timing violation in
+   /Pipeline_Datapath_tb/UUT/XLXI_34/inst/  $recovery( CLKA:4.800 us, CLKB:4.800
+   us,1.000 ns)
+
+WARNING:Simulator:29 - at 4.900 us: Warning: Timing violation in
+   /Pipeline_Datapath_tb/UUT/XLXI_34/inst/  $recovery( CLKB:4.900 us, CLKA:4.900
+   us,1.000 ns)
+
+WARNING:Simulator:29 - at 4.900 us: Warning: Timing violation in
+   /Pipeline_Datapath_tb/UUT/XLXI_34/inst/  $recovery( CLKA:4.900 us, CLKB:4.900
+   us,1.000 ns)
+
+WARNING:Simulator:29 - at 5.000 us: Warning: Timing violation in
+   /Pipeline_Datapath_tb/UUT/XLXI_34/inst/  $recovery( CLKB:5.000 us, CLKA:5.000
+   us,1.000 ns)
+
+WARNING:Simulator:29 - at 5.000 us: Warning: Timing violation in
+   /Pipeline_Datapath_tb/UUT/XLXI_34/inst/  $recovery( CLKA:5.000 us, CLKB:5.000
+   us,1.000 ns)
+
+
+ Total Simulation Time: 1.76563 sec
+
+ Current Memory Usage: 166.736 Meg
+
+Fri Mar 13 18:18:13 2026
+
