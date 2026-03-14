@@ -1,24 +1,24 @@
 Determining compilation order of HDL files
 Analyzing Verilog file ALU1Bit.vf
-Analyzing Verilog file ALU8Bit.vf
 Analyzing Verilog file ZeroDetect16.vf
 Analyzing Verilog file reg64.v
 Analyzing Verilog file reg2.v
 Analyzing Verilog file m4_64b.v
 Analyzing Verilog file decode2b.vf
-Analyzing Verilog file ALU64Bit.vf
+Analyzing Verilog file ALU8Bit.vf
 Analyzing Verilog file ZeroDetect64.vf
 Analyzing Verilog file SignExt.v
 Analyzing Verilog file reg_file.vf
-Analyzing Verilog file ProgCount.vf
+Analyzing Verilog file ProgCountVerilog.v
 Analyzing Verilog file Mux64bit_wide.v
 Analyzing Verilog file MEMWBStageReg.vf
 Analyzing Verilog file InstructionMem.v
 Analyzing Verilog file IFIDReg.vf
 Analyzing Verilog file EXMEMReg.vf
 Analyzing Verilog file DataMemory.v
+Analyzing Verilog file ALU64Bit.vf
 Analyzing Verilog file PipelinedDatapath.vf
-Analyzing Verilog file PipelineDatpath.tfw
+Analyzing Verilog file Pipeline_Datapath_tb.tfw
 Analyzing Verilog file C:/Xilinx/10.1/ISE/verilog/src/glbl.v
 Saving Verilog parse-tree work.M2_1_MXILINX_ALU1Bit into
 z:/sharedxm/ee533lab6/pipelineddatapath/isim/work/@m2_1_@m@x@i@l@i@n@x_@a@l@u1@b
@@ -31,11 +31,6 @@ z:/sharedxm/ee533lab6/pipelineddatapath/isim/work/@m8_1@e_@m@x@i@l@i@n@x_@a@l@u1
 @bit.sdb
 Saving Verilog parse-tree work.ALU1Bit into
 z:/sharedxm/ee533lab6/pipelineddatapath/isim/work/@a@l@u1@bit.sdb
-Saving Verilog parse-tree work.M2_1_MXILINX_ALU8Bit into
-z:/sharedxm/ee533lab6/pipelineddatapath/isim/work/@m2_1_@m@x@i@l@i@n@x_@a@l@u8@b
-it.sdb
-Saving Verilog parse-tree work.ALU8Bit into
-z:/sharedxm/ee533lab6/pipelineddatapath/isim/work/@a@l@u8@bit.sdb
 Saving Verilog parse-tree work.OR16_MXILINX_ZeroDetect16 into
 z:/sharedxm/ee533lab6/pipelineddatapath/isim/work/@o@r16_@m@x@i@l@i@n@x_@zero@de
 tect16.sdb
@@ -49,16 +44,19 @@ Saving Verilog parse-tree work.m4_64b into
 z:/sharedxm/ee533lab6/pipelineddatapath/isim/work/m4_64b.sdb
 Saving Verilog parse-tree work.decode2b into
 z:/sharedxm/ee533lab6/pipelineddatapath/isim/work/decode2b.sdb
-Saving Verilog parse-tree work.ALU64Bit into
-z:/sharedxm/ee533lab6/pipelineddatapath/isim/work/@a@l@u64@bit.sdb
+Saving Verilog parse-tree work.M2_1_MXILINX_ALU8Bit into
+z:/sharedxm/ee533lab6/pipelineddatapath/isim/work/@m2_1_@m@x@i@l@i@n@x_@a@l@u8@b
+it.sdb
+Saving Verilog parse-tree work.ALU8Bit into
+z:/sharedxm/ee533lab6/pipelineddatapath/isim/work/@a@l@u8@bit.sdb
 Saving Verilog parse-tree work.ZeroDetect64 into
 z:/sharedxm/ee533lab6/pipelineddatapath/isim/work/@zero@detect64.sdb
 Saving Verilog parse-tree work.signExt into
 z:/sharedxm/ee533lab6/pipelineddatapath/isim/work/sign@ext.sdb
 Saving Verilog parse-tree work.reg_file into
 z:/sharedxm/ee533lab6/pipelineddatapath/isim/work/reg_file.sdb
-Saving Verilog parse-tree work.ProgCount into
-z:/sharedxm/ee533lab6/pipelineddatapath/isim/work/@prog@count.sdb
+Saving Verilog parse-tree work.ProgCountVerilog into
+z:/sharedxm/ee533lab6/pipelineddatapath/isim/work/@prog@count@verilog.sdb
 Saving Verilog parse-tree work.Mux64bit_wide into
 z:/sharedxm/ee533lab6/pipelineddatapath/isim/work/@mux64bit_wide.sdb
 Saving Verilog parse-tree work.MEMWBStageReg into
@@ -74,10 +72,12 @@ Saving Verilog parse-tree work.EXMEMReg into
 z:/sharedxm/ee533lab6/pipelineddatapath/isim/work/@e@x@m@e@m@reg.sdb
 Saving Verilog parse-tree work.DataMemory into
 z:/sharedxm/ee533lab6/pipelineddatapath/isim/work/@data@memory.sdb
+Saving Verilog parse-tree work.ALU64Bit into
+z:/sharedxm/ee533lab6/pipelineddatapath/isim/work/@a@l@u64@bit.sdb
 Saving Verilog parse-tree work.PipelinedDatapath into
 z:/sharedxm/ee533lab6/pipelineddatapath/isim/work/@pipelined@datapath.sdb
-Saving Verilog parse-tree work.PipelineDatpath into
-z:/sharedxm/ee533lab6/pipelineddatapath/isim/work/@pipeline@datpath.sdb
+Saving Verilog parse-tree work.Pipeline_Datapath_tb into
+z:/sharedxm/ee533lab6/pipelineddatapath/isim/work/@pipeline_@datapath_tb.sdb
 Saving Verilog parse-tree work.glbl into
 z:/sharedxm/ee533lab6/pipelineddatapath/isim/work/glbl.sdb
 Starting static elaboration
@@ -89,11 +89,15 @@ Restoring Verilog parse-tree xilinxcorelib_ver.BLKMEMSP_V6_2 from
 c:/xilinx/10.1/ise/verilog/hdp/nt/xilinxcorelib_ver/xilinxcorelib_ver.sdbl
 Restoring Verilog parse-tree xilinxcorelib_ver.BLKMEMDP_V6_3 from
 c:/xilinx/10.1/ise/verilog/hdp/nt/xilinxcorelib_ver/xilinxcorelib_ver.sdbl
+Restoring Verilog parse-tree unisims_ver.FDCE from
+c:/xilinx/10.1/ise/verilog/hdp/nt/unisims_ver/unisims_ver.sdbl
+Restoring Verilog parse-tree unisims_ver.GND from
+c:/xilinx/10.1/ise/verilog/hdp/nt/unisims_ver/unisims_ver.sdbl
+Restoring Verilog parse-tree unisims_ver.VCC from
+c:/xilinx/10.1/ise/verilog/hdp/nt/unisims_ver/unisims_ver.sdbl
 Restoring Verilog parse-tree unisims_ver.OR2 from
 c:/xilinx/10.1/ise/verilog/hdp/nt/unisims_ver/unisims_ver.sdbl
 Restoring Verilog parse-tree unisims_ver.XOR3 from
-c:/xilinx/10.1/ise/verilog/hdp/nt/unisims_ver/unisims_ver.sdbl
-Restoring Verilog parse-tree unisims_ver.VCC from
 c:/xilinx/10.1/ise/verilog/hdp/nt/unisims_ver/unisims_ver.sdbl
 Restoring Verilog parse-tree unisims_ver.XOR2 from
 c:/xilinx/10.1/ise/verilog/hdp/nt/unisims_ver/unisims_ver.sdbl
@@ -109,9 +113,7 @@ Restoring Verilog parse-tree unisims_ver.MUXF6 from
 c:/xilinx/10.1/ise/verilog/hdp/nt/unisims_ver/unisims_ver.sdbl
 Restoring Verilog parse-tree unisims_ver.XNOR2 from
 c:/xilinx/10.1/ise/verilog/hdp/nt/unisims_ver/unisims_ver.sdbl
-Restoring Verilog parse-tree unisims_ver.GND from
-c:/xilinx/10.1/ise/verilog/hdp/nt/unisims_ver/unisims_ver.sdbl
-Restoring Verilog parse-tree unisims_ver.FDCE from
+Restoring Verilog parse-tree unisims_ver.FD from
 c:/xilinx/10.1/ise/verilog/hdp/nt/unisims_ver/unisims_ver.sdbl
 Restoring Verilog parse-tree unisims_ver.MUXCY_L from
 c:/xilinx/10.1/ise/verilog/hdp/nt/unisims_ver/unisims_ver.sdbl
@@ -121,15 +123,13 @@ Restoring Verilog parse-tree unisims_ver.NOR4 from
 c:/xilinx/10.1/ise/verilog/hdp/nt/unisims_ver/unisims_ver.sdbl
 Restoring Verilog parse-tree unisims_ver.MUXCY from
 c:/xilinx/10.1/ise/verilog/hdp/nt/unisims_ver/unisims_ver.sdbl
-Restoring Verilog parse-tree unisims_ver.FD from
-c:/xilinx/10.1/ise/verilog/hdp/nt/unisims_ver/unisims_ver.sdbl
-WARNING:HDLCompiler:559 - "PipelinedDatapath.vf" Line 127. Instantiating unknown
+WARNING:HDLCompiler:559 - "PipelinedDatapath.vf" Line 121. Instantiating unknown
    module IDEXReg
-WARNING:HDLCompiler:1016 - "PipelinedDatapath.vf" Line 112. Port PCI is not
+WARNING:HDLCompiler:1016 - "PipelinedDatapath.vf" Line 106. Port PCI is not
    connected to this instance
 Completed static elaboration
 Fuse Memory Usage: 55176 Kb
-Fuse CPU Usage: 13781 ms
+Fuse CPU Usage: 7390 ms
 Compiling module glbl
 Compiling module reg64
 Compiling module INV
@@ -141,25 +141,6 @@ Compiling module BLKMEMSP_V6_2(c_addr_width=8,c_d...
 Compiling module InstructionMem
 Compiling module BLKMEMDP_V6_3(c_addra_width=8,c_...
 Compiling module DataMemory
-Compiling module OR2
-Compiling module XOR3
-Compiling module VCC
-Compiling module XOR2
-Compiling module AND2B1
-Compiling module M2_1_MXILINX_ALU1Bit
-Compiling module AND3
-Compiling module AND3B1
-Compiling module M2_1E_MXILINX_ALU1Bit
-Compiling module MUXF5_L
-Compiling module MUXF6
-Compiling module M8_1E_MXILINX_ALU1Bit
-Compiling module XNOR2
-Compiling module ALU1Bit
-Compiling module M2_1_MXILINX_ALU8Bit
-Compiling module ALU8Bit
-Compiling module GND
-Compiling module ALU64Bit
-Compiling module ProgCount
 Compiling module FDCE(INIT=1'b0)_0
 Compiling module FDCE(INIT=1'b0)_1
 Compiling module FDCE(INIT=1'b0)_2
@@ -193,15 +174,26 @@ Compiling module FDCE(INIT=1'b0)_29
 Compiling module FDCE(INIT=1'b0)_30
 Compiling module FDCE(INIT=1'b0)_31
 Compiling module FD16CE_MXILINX_IFIDReg
+Compiling module GND
+Compiling module VCC
 Compiling module FD16CE_MXILINX_IFIDReg_2
 Compiling module IFIDReg
-Compiling module MUXCY_L
-Compiling module FMAP
-Compiling module NOR4
-Compiling module MUXCY
-Compiling module OR16_MXILINX_ZeroDetect16
-Compiling module ZeroDetect16
-Compiling module ZeroDetect64
+Compiling module OR2
+Compiling module XOR3
+Compiling module XOR2
+Compiling module AND2B1
+Compiling module M2_1_MXILINX_ALU1Bit
+Compiling module AND3
+Compiling module AND3B1
+Compiling module M2_1E_MXILINX_ALU1Bit
+Compiling module MUXF5_L
+Compiling module MUXF6
+Compiling module M8_1E_MXILINX_ALU1Bit
+Compiling module XNOR2
+Compiling module ALU1Bit
+Compiling module M2_1_MXILINX_ALU8Bit
+Compiling module ALU8Bit
+Compiling module ALU64Bit
 Compiling module FD(INIT=1'b0)_0
 Compiling module FD(INIT=1'b0)_1
 Compiling module FD(INIT=1'b0)_2
@@ -212,9 +204,17 @@ Compiling module EXMEMReg
 Compiling module signExt
 Compiling module MEMWBStageReg
 Compiling module Mux64bit_wide
+Compiling module ProgCountVerilog
+Compiling module MUXCY_L
+Compiling module FMAP
+Compiling module NOR4
+Compiling module MUXCY
+Compiling module OR16_MXILINX_ZeroDetect16
+Compiling module ZeroDetect16
+Compiling module ZeroDetect64
 Compiling module PipelinedDatapath
-Compiling module PipelineDatpath
+Compiling module Pipeline_Datapath_tb
 Compiled 84 Verilog Units
-Built simulation executable PipelineDatpath_isim_beh.exe
+Built simulation executable Pipeline_Datapath_tb_isim_beh.exe
 Fuse Memory Usage: 59788 Kb
-Fuse CPU Usage: 17296 ms
+Fuse CPU Usage: 10624 ms

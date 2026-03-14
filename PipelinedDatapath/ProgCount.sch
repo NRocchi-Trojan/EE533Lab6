@@ -12,8 +12,7 @@ BEGIN SCHEMATIC
         SIGNAL ProgCounter(63:0)
         SIGNAL XLXN_9
         SIGNAL PCIn(63:0)
-        BEGIN SIGNAL Bin(63:0)
-        END SIGNAL
+        SIGNAL Bin(63:0)
         PORT Output ToInst(63:0)
         PORT Input clk
         PORT Output ProgCounter(63:0)

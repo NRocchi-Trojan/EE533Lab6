@@ -1,1 +1,2 @@
-isimrun all
+run 1000 ns
+exit

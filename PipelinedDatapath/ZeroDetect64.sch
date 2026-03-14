@@ -7,7 +7,6 @@ BEGIN SCHEMATIC
     END ATTR
     BEGIN NETLIST
         SIGNAL din(63:0)
-        SIGNAL dout
         SIGNAL din(63:48)
         SIGNAL din(47:32)
         SIGNAL din(31:16)
@@ -16,8 +15,12 @@ BEGIN SCHEMATIC
         SIGNAL XLXN_8
         SIGNAL XLXN_9
         SIGNAL XLXN_10
+        SIGNAL XLXN_11
+        SIGNAL dout
+        SIGNAL rst
         PORT Input din(63:0)
         PORT Output dout
+        PORT Input rst
         BEGIN BLOCKDEF ZeroDetect16
             TIMESTAMP 2026 2 24 5 53 50
             RECTANGLE N 64 -64 320 0 
@@ -41,6 +44,17 @@ BEGIN SCHEMATIC
             ARC N -40 -216 72 -104 48 -112 48 -208 
             ARC N 28 -288 204 -112 112 -112 192 -160 
         END BLOCKDEF
+        BEGIN BLOCKDEF and2b1
+            TIMESTAMP 2000 1 1 10 10 10
+            LINE N 64 -48 64 -144 
+            LINE N 64 -144 144 -144 
+            LINE N 144 -48 64 -48 
+            ARC N 96 -144 192 -48 144 -48 144 -144 
+            LINE N 256 -96 192 -96 
+            LINE N 0 -128 64 -128 
+            LINE N 0 -64 40 -64 
+            CIRCLE N 40 -76 64 -52 
+        END BLOCKDEF
         BEGIN BLOCK XLXI_3 ZeroDetect16
             PIN din(15:0) din(31:16)
             PIN dout XLXN_8
@@ -62,6 +76,11 @@ BEGIN SCHEMATIC
             PIN I1 XLXN_8
             PIN I2 XLXN_7
             PIN I3 XLXN_9
+            PIN O XLXN_11
+        END BLOCK
+        BEGIN BLOCK XLXI_10 and2b1
+            PIN I0 rst
+            PIN I1 XLXN_11
             PIN O dout
         END BLOCK
     END NETLIST
@@ -73,10 +92,6 @@ BEGIN SCHEMATIC
             END DISPLAY
         END BRANCH
         IOMARKER 640 640 din(63:0) R180 28
-        BEGIN BRANCH dout
-            WIRE 2720 640 2880 640
-        END BRANCH
-        IOMARKER 2880 640 dout R0 28
         BEGIN INSTANCE XLXI_3 1456 736 R0
         END INSTANCE
         BEGIN INSTANCE XLXI_4 1456 880 R0
@@ -128,5 +143,19 @@ BEGIN SCHEMATIC
             WIRE 1840 848 2464 848
             WIRE 2464 736 2464 848
         END BRANCH
+        BEGIN BRANCH XLXN_11
+            WIRE 2720 640 2752 640
+        END BRANCH
+        INSTANCE XLXI_10 2752 768 R0
+        BEGIN BRANCH dout
+            WIRE 3008 672 3168 672
+        END BRANCH
+        IOMARKER 3168 672 dout R0 28
+        BEGIN BRANCH rst
+            WIRE 2384 992 2736 992
+            WIRE 2736 704 2736 992
+            WIRE 2736 704 2752 704
+        END BRANCH
+        IOMARKER 2384 992 rst R180 28
     END SHEET
 END SCHEMATIC

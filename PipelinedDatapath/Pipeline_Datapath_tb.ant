@@ -7,27 +7,28 @@
 // /___/  \  /    Vendor: Xilinx 
 // \   \   \/     Version : 10.1
 //  \   \         Application : ISE
-//  /   /         Filename : PipelineDatpath.ant
-// /___/   /\     Timestamp : Thu Mar 12 22:18:55 2026
+//  /   /         Filename : Pipeline_Datapath_tb.ant
+// /___/   /\     Timestamp : Fri Mar 13 18:08:01 2026
 // \   \  /  \ 
 //  \___\/\___\ 
 //
 //Command: 
-//Design Name: PipelineDatpath
+//Design Name: Pipeline_Datapath_tb
 //Device: Xilinx
 //
 `timescale 1ns/1ps
 
-module PipelineDatpath;
+module Pipeline_Datapath_tb;
     reg clk = 1'b0;
     reg [31:0] InstData = 32'b00000000000000000000000000000000;
+    reg rst = 1'b0;
     reg wea = 1'b0;
-    wire [63:0] PC_Res;
+    wire [63:0] InstADDR;
     wire [63:0] WB_Res;
 
-    parameter PERIOD = 20;
+    parameter PERIOD = 200;
     parameter real DUTY_CYCLE = 0.5;
-    parameter OFFSET = 0;
+    parameter OFFSET = 100;
 
     initial    // Clock process for clk
     begin
@@ -43,8 +44,9 @@ module PipelineDatpath;
     PipelinedDatapath UUT (
         .clk(clk),
         .InstData(InstData),
+        .rst(rst),
         .wea(wea),
-        .PC_Res(PC_Res),
+        .InstADDR(InstADDR),
         .WB_Res(WB_Res));
 
     integer TX_FILE = 0;
@@ -52,20 +54,20 @@ module PipelineDatpath;
     
     initial begin    // Annotation process for clock clk
         #0;
-        ANNOTATE_PC_Res;
+        ANNOTATE_InstADDR;
         ANNOTATE_WB_Res;
         #OFFSET;
         forever begin
-            #15;
-            ANNOTATE_PC_Res;
+            #115;
+            ANNOTATE_InstADDR;
             ANNOTATE_WB_Res;
-            #5;
+            #85;
         end
     end
 
     initial begin  // Open the annotations file...
-        TX_FILE = $fopen("\\\\vmware-host\\shared folders\\SharedXM\\EE533Lab6\\PipelinedDatapath\\PipelineDatpath.ano");
-        #1020 // Final time:  1020 ns
+        TX_FILE = $fopen("\\\\vmware-host\\shared folders\\SharedXM\\EE533Lab6\\PipelinedDatapath\\Pipeline_Datapath_tb.ano");
+        #1200 // Final time:  1200 ns
         $display("Success! Annotation Simulation Complete.");
         $fdisplay(TX_FILE, "Total[%d]", TX_ERROR);
         $fclose(TX_FILE);
@@ -73,11 +75,19 @@ module PipelineDatpath;
     end
 
     initial begin
+        // -------------  Current Time:  100ns
+        #100;
+        rst = 1'b1;
+        // -------------------------------------
+        // -------------  Current Time:  385ns
+        #285;
+        rst = 1'b0;
+        // -------------------------------------
     end
 
-    task ANNOTATE_PC_Res;
+    task ANNOTATE_InstADDR;
         #0 begin
-            $fdisplay(TX_FILE, "Annotate[%d,PC_Res,%b]", $time, PC_Res);
+            $fdisplay(TX_FILE, "Annotate[%d,InstADDR,%b]", $time, InstADDR);
             $fflush(TX_FILE);
             TX_ERROR = TX_ERROR + 1;
         end

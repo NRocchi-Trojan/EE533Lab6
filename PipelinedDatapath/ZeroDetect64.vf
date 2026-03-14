@@ -7,7 +7,7 @@
 // \   \   \/     Version : 10.1
 //  \   \         Application : sch2verilog
 //  /   /         Filename : ZeroDetect64.vf
-// /___/   /\     Timestamp : 02/23/2026 22:06:30
+// /___/   /\     Timestamp : 03/13/2026 17:59:30
 // \   \  /  \ 
 //  \___\/\___\ 
 //
@@ -21,15 +21,18 @@
 `timescale 1ns / 1ps
 
 module ZeroDetect64(din, 
+                    rst, 
                     dout);
 
     input [63:0] din;
+    input rst;
    output dout;
    
    wire XLXN_7;
    wire XLXN_8;
    wire XLXN_9;
    wire XLXN_10;
+   wire XLXN_11;
    
    ZeroDetect16 XLXI_1 (.din(din[63:48]), 
                         .dout(XLXN_9));
@@ -43,5 +46,8 @@ module ZeroDetect64(din,
                 .I1(XLXN_8), 
                 .I2(XLXN_7), 
                 .I3(XLXN_9), 
-                .O(dout));
+                .O(XLXN_11));
+   AND2B1 XLXI_10 (.I0(rst), 
+                   .I1(XLXN_11), 
+                   .O(dout));
 endmodule

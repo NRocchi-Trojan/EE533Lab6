@@ -1,0 +1,11 @@
+[Inputs]
+clk
+rst
+load_en
+=next_pc[63:0]=
+[Outputs]
+=ProgCounter[63:0]=
+[BiDir]
+[ATTRIBUTES]
+VeriModel ProgCountVerilog
+
