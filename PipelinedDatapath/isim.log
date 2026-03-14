@@ -1,0 +1,104 @@
+Command line:
+   ./Pipeline_Datapath_tb_isim_beh.exe
+     -intstyle  ise
+     -ipchost  localhost
+     -ipcport  1092
+
+Fri Mar 13 18:09:03 2026
+
+Total Line Count : 2154
+
+ Elaboration Time: 1.23438 sec
+
+ Current Memory Usage: 156.238 Meg
+
+ Total Signals          : 14089
+ Total Nets             : 4858
+ Total Signal Drivers   : 3006
+ Total Blocks           : 2854
+ Total Primitive Blocks : 2359
+ Total Processes        : 3436
+ Total Traceable Variables  : 595
+ Total Scalar Nets and Variables : 63191
+ntrace select -o on -n /Pipeline_Datapath_tb/clk 
+ntrace select -o on -n /Pipeline_Datapath_tb/rst 
+ntrace select -o on -n /Pipeline_Datapath_tb/InstADDR 
+ntrace select -o on -n /Pipeline_Datapath_tb/WB_Res 
+ntrace select -o on -n /Pipeline_Datapath_tb/InstData 
+ntrace select -o on -n /Pipeline_Datapath_tb/wea 
+ntrace start 
+isimrun 1000 ns 
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+WARNING:Simulator:29 - at 200.000 ns: Warning: Timing violation in
+   /Pipeline_Datapath_tb/UUT/XLXI_34/inst/  $recovery( CLKB:200.000 ns,
+   CLKA:200.000 ns,1.000 ns)
+
+WARNING:Simulator:29 - at 200.000 ns: Warning: Timing violation in
+   /Pipeline_Datapath_tb/UUT/XLXI_34/inst/  $recovery( CLKA:200.000 ns,
+   CLKB:200.000 ns,1.000 ns)
+
+WARNING:Simulator:29 - at 300.000 ns: Warning: Timing violation in
+   /Pipeline_Datapath_tb/UUT/XLXI_34/inst/  $recovery( CLKB:300.000 ns,
+   CLKA:300.000 ns,1.000 ns)
+
+WARNING:Simulator:29 - at 300.000 ns: Warning: Timing violation in
+   /Pipeline_Datapath_tb/UUT/XLXI_34/inst/  $recovery( CLKA:300.000 ns,
+   CLKB:300.000 ns,1.000 ns)
+
+WARNING:Simulator:29 - at 400.000 ns: Warning: Timing violation in
+   /Pipeline_Datapath_tb/UUT/XLXI_34/inst/  $recovery( CLKB:400.000 ns,
+   CLKA:400.000 ns,1.000 ns)
+
+WARNING:Simulator:29 - at 400.000 ns: Warning: Timing violation in
+   /Pipeline_Datapath_tb/UUT/XLXI_34/inst/  $recovery( CLKA:400.000 ns,
+   CLKB:400.000 ns,1.000 ns)
+
+WARNING:Simulator:29 - at 500.000 ns: Warning: Timing violation in
+   /Pipeline_Datapath_tb/UUT/XLXI_34/inst/  $recovery( CLKB:500.000 ns,
+   CLKA:500.000 ns,1.000 ns)
+
+WARNING:Simulator:29 - at 500.000 ns: Warning: Timing violation in
+   /Pipeline_Datapath_tb/UUT/XLXI_34/inst/  $recovery( CLKA:500.000 ns,
+   CLKB:500.000 ns,1.000 ns)
+
+WARNING:Simulator:29 - at 600.000 ns: Warning: Timing violation in
+   /Pipeline_Datapath_tb/UUT/XLXI_34/inst/  $recovery( CLKB:600.000 ns,
+   CLKA:600.000 ns,1.000 ns)
+
+WARNING:Simulator:29 - at 600.000 ns: Warning: Timing violation in
+   /Pipeline_Datapath_tb/UUT/XLXI_34/inst/  $recovery( CLKA:600.000 ns,
+   CLKB:600.000 ns,1.000 ns)
+
+WARNING:Simulator:29 - at 700.000 ns: Warning: Timing violation in
+   /Pipeline_Datapath_tb/UUT/XLXI_34/inst/  $recovery( CLKB:700.000 ns,
+   CLKA:700.000 ns,1.000 ns)
+
+WARNING:Simulator:29 - at 700.000 ns: Warning: Timing violation in
+   /Pipeline_Datapath_tb/UUT/XLXI_34/inst/  $recovery( CLKA:700.000 ns,
+   CLKB:700.000 ns,1.000 ns)
+
+WARNING:Simulator:29 - at 800.000 ns: Warning: Timing violation in
+   /Pipeline_Datapath_tb/UUT/XLXI_34/inst/  $recovery( CLKB:800.000 ns,
+   CLKA:800.000 ns,1.000 ns)
+
+WARNING:Simulator:29 - at 800.000 ns: Warning: Timing violation in
+   /Pipeline_Datapath_tb/UUT/XLXI_34/inst/  $recovery( CLKA:800.000 ns,
+   CLKB:800.000 ns,1.000 ns)
+
+WARNING:Simulator:29 - at 900.000 ns: Warning: Timing violation in
+   /Pipeline_Datapath_tb/UUT/XLXI_34/inst/  $recovery( CLKB:900.000 ns,
+   CLKA:900.000 ns,1.000 ns)
+
+WARNING:Simulator:29 - at 900.000 ns: Warning: Timing violation in
+   /Pipeline_Datapath_tb/UUT/XLXI_34/inst/  $recovery( CLKA:900.000 ns,
+   CLKB:900.000 ns,1.000 ns)
+
+WARNING:Simulator:29 - at 1.000 us: Warning: Timing violation in
+   /Pipeline_Datapath_tb/UUT/XLXI_34/inst/  $recovery( CLKB:1.000 us, CLKA:1.000
+   us,1.000 ns)
+
+WARNING:Simulator:29 - at 1.000 us: Warning: Timing violation in
+   /Pipeline_Datapath_tb/UUT/XLXI_34/inst/  $recovery( CLKA:1.000 us, CLKB:1.000
+   us,1.000 ns)
+

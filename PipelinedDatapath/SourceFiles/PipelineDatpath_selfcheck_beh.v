@@ -1,0 +1,87 @@
+////////////////////////////////////////////////////////////////////////////////
+// Copyright (c) 1995-2003 Xilinx, Inc.
+// All Right Reserved.
+////////////////////////////////////////////////////////////////////////////////
+//   ____  ____ 
+//  /   /\/   / 
+// /___/  \  /    Vendor: Xilinx 
+// \   \   \/     Version : 10.1
+//  \   \         Application : ISE
+//  /   /         Filename : PipelineDatpath_selfcheck.tfw
+// /___/   /\     Timestamp : Thu Mar 12 22:19:46 2026
+// \   \  /  \ 
+//  \___\/\___\ 
+//
+//Command: 
+//Design Name: PipelineDatpath_selfcheck_beh
+//Device: Xilinx
+//
+`timescale 1ns/1ps
+
+module PipelineDatpath_selfcheck_beh;
+    reg clk = 1'b0;
+    reg [31:0] InstData = 32'b00000000000000000000000000000000;
+    reg wea = 1'b0;
+    wire [63:0] PC_Res;
+    wire [63:0] WB_Res;
+
+    parameter PERIOD = 20;
+    parameter real DUTY_CYCLE = 0.5;
+    parameter OFFSET = 0;
+
+    initial    // Clock process for clk
+    begin
+        #OFFSET;
+        forever
+        begin
+            clk = 1'b0;
+            #(PERIOD-(PERIOD*DUTY_CYCLE)) clk = 1'b1;
+            #(PERIOD*DUTY_CYCLE);
+        end
+    end
+
+    PipelinedDatapath UUT (
+        .clk(clk),
+        .InstData(InstData),
+        .wea(wea),
+        .PC_Res(PC_Res),
+        .WB_Res(WB_Res));
+
+    integer TX_ERROR = 0;
+    
+    initial begin  // Open the results file...
+        #1020 // Final time:  1020 ns
+        if (TX_ERROR == 0) begin
+            $display("No errors or warnings.");
+        end else begin
+            $display("%d errors found in simulation.", TX_ERROR);
+        end
+        $stop;
+    end
+
+    initial begin
+    end
+
+    task CHECK_PC_Res;
+        input [63:0] NEXT_PC_Res;
+
+        #0 begin
+            if (NEXT_PC_Res !== PC_Res) begin
+                $display("Error at time=%dns PC_Res=%b, expected=%b", $time, PC_Res, NEXT_PC_Res);
+                TX_ERROR = TX_ERROR + 1;
+            end
+        end
+    endtask
+    task CHECK_WB_Res;
+        input [63:0] NEXT_WB_Res;
+
+        #0 begin
+            if (NEXT_WB_Res !== WB_Res) begin
+                $display("Error at time=%dns WB_Res=%b, expected=%b", $time, WB_Res, NEXT_WB_Res);
+                TX_ERROR = TX_ERROR + 1;
+            end
+        end
+    endtask
+
+endmodule
+

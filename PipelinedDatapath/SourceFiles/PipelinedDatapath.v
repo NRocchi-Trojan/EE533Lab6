@@ -7,7 +7,7 @@
 // \   \   \/     Version : 10.1
 //  \   \         Application : sch2verilog
 //  /   /         Filename : PipelinedDatapath.vf
-// /___/   /\     Timestamp : 02/23/2026 22:30:16
+// /___/   /\     Timestamp : 03/13/2026 17:58:30
 // \   \  /  \ 
 //  \___\/\___\ 
 //
@@ -22,18 +22,22 @@
 
 module PipelinedDatapath(clk, 
                          InstData, 
-                         wea);
+                         rst, 
+                         wea, 
+                         InstADDR, 
+                         WB_Res);
 
     input clk;
     input [31:0] InstData;
+    input rst;
     input wea;
+   output [63:0] InstADDR;
+   output [63:0] WB_Res;
    
    wire [63:0] ALUnoop;
    wire [5:0] ALUOP;
-   wire [63:0] InstADDR;
    wire [31:0] InstID;
    wire [31:0] InstIF;
-   wire [63:0] PCMux0;
    wire [63:0] PCMux1;
    wire [63:0] RegData1;
    wire [1:0] WBWADDR;
@@ -53,10 +57,8 @@ module PipelinedDatapath(clk,
    wire XLXN_89;
    wire [63:0] XLXN_102;
    wire [63:0] XLXN_111;
-   wire [63:0] XLXN_114;
    wire [63:0] XLXN_115;
    wire [31:0] XLXN_127;
-   wire [63:0] XLXN_140;
    wire [63:0] XLXN_171;
    wire [63:0] XLXN_180;
    wire XLXN_182;
@@ -64,16 +66,20 @@ module PipelinedDatapath(clk,
    wire XLXN_184;
    wire XLXN_185;
    wire XLXN_186;
+   wire [63:0] WB_Res_DUMMY;
+   wire [63:0] InstADDR_DUMMY;
    
+   assign InstADDR[63:0] = InstADDR_DUMMY[63:0];
+   assign WB_Res[63:0] = WB_Res_DUMMY[63:0];
    reg_file XLXI_13 (.clk(clk), 
                      .r0addr(InstID[22:21]), 
                      .r1addr({InstID[15], InstID[16]}), 
                      .waddr(WBWADDR[1:0]), 
-                     .wdata(XLXN_140[63:0]), 
+                     .wdata(WB_Res_DUMMY[63:0]), 
                      .wena(XLXN_44), 
                      .r0data(XLXN_16[63:0]), 
                      .r1data(XLXN_15[63:0]));
-   InstructionMem XLXI_32 (.addr(InstADDR[7:0]), 
+   InstructionMem XLXI_32 (.addr(InstADDR_DUMMY[7:0]), 
                            .clk(clk), 
                            .din(InstData[31:0]), 
                            .we(wea), 
@@ -85,17 +91,11 @@ module PipelinedDatapath(clk,
                        .dina(XLXN_50[63:0]), 
                        .wea(XLXN_65), 
                        .doutb(XLXN_47[63:0]));
-   ProgCount XLXI_39 (.clk(clk), 
-                      .PCIn(XLXN_114[63:0]), 
-                      .ProgCounter(PCMux0[63:0]), 
-                      .ToInst(InstADDR[63:0]));
    IFIDReg XLXI_40 (.clk(clk), 
                     .Inst(InstIF[31:0]), 
                     .PCIF(XLXN_82[63:0]), 
                     .InstOut(InstID[31:0]), 
-                    .PCID(XLXN_114[63:0]));
-   ZeroDetect64 XLXI_42 (.din(XLXN_16[63:0]), 
-                         .dout(XLXN_83));
+                    .PCID(InstADDR_DUMMY[63:0]));
    ALU64Bit XLXI_44 (.a(XLXN_5[63:0]), 
                      .b(XLXN_171[63:0]), 
                      .cin(), 
@@ -152,10 +152,6 @@ module PipelinedDatapath(clk,
                           .WDataO(XLXN_111[63:0]), 
                           .WREG1O(WBWADDR[1:0]), 
                           .WREO(XLXN_44));
-   Mux64bit_wide XLXI_61 (.D0(PCMux1[63:0]), 
-                          .D1(PCMux0[63:0]), 
-                          .Sel(XLXN_89), 
-                          .O(XLXN_114[63:0]));
    Mux64bit_wide XLXI_62 (.D0(XLXN_180[63:0]), 
                           .D1(ALUnoop[63:0]), 
                           .Sel(XLXN_182), 
@@ -163,5 +159,13 @@ module PipelinedDatapath(clk,
    Mux64bit_wide XLXI_63 (.D0(XLXN_111[63:0]), 
                           .D1(XLXN_115[63:0]), 
                           .Sel(XLXN_186), 
-                          .O(XLXN_140[63:0]));
+                          .O(WB_Res_DUMMY[63:0]));
+   ProgCountVerilog XLXI_65 (.clk(clk), 
+                             .load_en(XLXN_89), 
+                             .next_pc(PCMux1[63:0]), 
+                             .rst(rst), 
+                             .ProgCounter(InstADDR_DUMMY[63:0]));
+   ZeroDetect64 XLXI_66 (.din(XLXN_16[63:0]), 
+                         .rst(rst), 
+                         .dout(XLXN_83));
 endmodule
